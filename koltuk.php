@@ -214,10 +214,10 @@ $(document).ready(function() {
            document.getElementById("btn-payment").disabled=false;
            $(this).prop ('disabled', true);
            document.getElementById("ticketNum").value = sayi;
-           if (sayi > 6) {
+           if (sayi >= 7) {
            	alert("Maksimum 6 Bilet seçilebilir.");
            	$(this).prop('disabled',false);
-           	sayi = 6;
+           	sayi = 7;
            }else {
            	sayi = sayi +1;
            	document.getElementById("secimler").value= $(this).val()+" "+document.getElementById("secimler").value;  // Tüm seçilmiş biletler ekrana yazılıyor.
