@@ -207,19 +207,20 @@ var sayi ;
 $(document).ready(function() {
 
 	
-	sayi = 0;
+	sayi = 1;
 
         $('.btn-success').click(function() {
 
-           document.getElementById("secimler").value= $(this).val()+" "+  document.getElementById("secimler").value  ;
            document.getElementById("btn-payment").disabled=false;
            $(this).prop ('disabled', true);
-           sayi = sayi +1;
            document.getElementById("ticketNum").value = sayi;
-           if (sayi >= 6) {
+           if (sayi > 6) {
            	alert("Maksimum 6 Bilet seçilebilir.");
            	$(this).prop('disabled',false);
-           	sayi = sayi -1;
+           	sayi = 6;
+           }else {
+           	sayi = sayi +1;
+           	document.getElementById("secimler").value= $(this).val()+" "+document.getElementById("secimler").value;  // Tüm seçilmiş biletler ekrana yazılıyor.
            }
 
         });
