@@ -51,34 +51,19 @@ footer p {
 }
 
 .listoflist{
-	transition: all 0.7s;
+	transition: all 1s;
 	text-decoration:none;
 	list-style-type: none;
 	
 }
 
 
-
-
-
-.fa-envelope-o{
-	
-	color:red;
-	transition: all 1.2s;
+.new-foot{
+	color:white;
+	size:15px;
 }
 
 
-.fa-envelope-o:hover{
-	color: white;
-}
-
-.fa-map-marker{
-	color:green;
-}
-
-.fa-phone{
-	color: blue;
-}
 
 
 
@@ -342,7 +327,7 @@ table , tr, td{
 	color:darkred;
 	font-weight: lighter;
 	box-shadow: none;
-	width:50%;
+	width:100%;
 }
 
 #secimler{
@@ -354,7 +339,7 @@ table , tr, td{
 }
 
 #money {
-	width: 100%;
+	width: 120%;
 	background: white;
 	border: none;
 }
@@ -400,4 +385,10 @@ table , tr, td{
 
 .seatnames {
 	border:none;
+}
+
+.iletisim-control {
+
+	list-style-type: none;
+
 }

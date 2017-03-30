@@ -63,8 +63,8 @@ $ticketNums = $_POST["ticketNum"];
 		<div class="row row-table"><div class="col-md-6" style="padding-top: 5px;">Koltuk Sayısı </div> 
 		<div class="col-md-6"><input type="text" readonly class="form-control ticketclass pull-right" id="idticket" name ="ticketNums" value="<?php echo $ticketNums; ?>" ></div></div>
 		<div class="row row-table">
-			<div class="col-md-9"><input type="text" name="koltuknumarasi" class="seatnames" value="<?php echo $deger ?>" readonly></div>
-			<div class="col-md-3"><input type="text" id= "money" value="<?php echo $ticketNums * 10; ?> ₺ " class="read-cost" name="ucret" readonly></div>
+			<div class="col-md-8"><input type="text" name="koltuknumarasi" class="seatnames" value="<?php echo $deger ?>" readonly></div>
+			<div class="col-md-4"><input type="text" id= "money" value="<?php echo $ticketNums * 10; ?> ₺ " class="read-cost" name="ucret" readonly></div>
 		</div>
 		
 		

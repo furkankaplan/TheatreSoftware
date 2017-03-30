@@ -179,8 +179,8 @@
 
 <div class="row payment-row">
 	  <form action="bilet.php" method="post">
- 		<div class="col-md-5"><input type="text" class="form-control pull-right" id="secimler" name="ticket" value=" " readonly></div> 
-   	<div class="col-md-5"><input type="submit" disabled="true" value=" BİLETİ ONAYLA" id="btn-payment"  class="btn btn-danger btn-payment" onclick="seatTaken()"></button></div>
+ 		<div class="col-md-7"><input type="text" class="form-control pull-right" id="secimler" name="ticket" value=" " readonly></div> 
+   	<div class="col-md-3"><input type="submit" disabled="true" value=" BİLETİ ONAYLA" id="btn-payment"  class="btn btn-danger btn-payment" onclick="seatTaken()"></button></div>
    	<div class="col-md-2"><input type="reset" onclick="sifirla()"  value="Sıfırla" class="btn btn-warning btn-reset"></input></div>
    	<input type="hidden" value="" name="ticketNum" id="ticketNum">
    	</form>
@@ -207,22 +207,23 @@ var sayi ;
 $(document).ready(function() {
 
 	
-	sayi = 1;
+	sayi = 0;
 
         $('.btn-success').click(function() {
 
            document.getElementById("btn-payment").disabled=false;
            $(this).prop ('disabled', true);
-           document.getElementById("ticketNum").value = sayi;
-           if (sayi >= 7) {
+           
+           if (sayi >= 6) {
            	alert("Maksimum 6 Bilet seçilebilir.");
            	$(this).prop('disabled',false);
-           	sayi = 7;
+           	sayi = 6;
            }else {
            	sayi = sayi +1;
            	document.getElementById("secimler").value= $(this).val()+" "+document.getElementById("secimler").value;  // Tüm seçilmiş biletler ekrana yazılıyor.
+           	
            }
-
+           document.getElementById("ticketNum").value = sayi;
         });
     });
 

@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:300,400,700,900');
+html,body{
+    font-family: 'Work Sans', sans-serif;
+}
+
+.row{
+
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.modal-body iframe{
+    height: 50%;
+    width: 70%;
+	border: 3px solid blue;
+	
+}
+
+.navbar-fixed-top{
+	border:none;
+	color: red;
+}
+
+
+body{
+	background: #EFF0F1;
+}
+
+
+.panel-collapse .panel-body:hover {	
+	background: red;
+}
+
+
+
+footer{
+	background: rgba(0,0,0,0.9);
+	
+}
+
+footer p {
+	color:whitesmoke;
+	
+}
+
+
+.listoflist li > a:hover{
+	color:red;
+	text-decoration: none;
+
+}
+
+.listoflist{
+	transition: all 0.7s;
+	text-decoration:none;
+	list-style-type: none;
+	
+}
+
+
+.fa-map-marker {
+	color:white;
+}
+
+.fa-envelope-o{
+	
+	color:red;
+	transition: all 1.2s;
+}
+
+
+.fa-envelope-o:hover{
+	color: white;
+}
+
+
+.fa-phone{
+	color: blue;
+}
+
+
+
+	
+	
+.social .fa{
+	border: 1px solid transparent;
+	padding: 2% 2% 2% 2%;
+	transition: all 1.5s;
+	
+	}
+
+.social .fa:hover{
+	border-radius: 5%;
+}
+
+.boxofshadows:hover{
+	box-shadow: 10px 10px 20px 20px grey;
+}
+
+
+
+.navbar-header .navbar-brand{
+	padding-top: 25px;
+	
+}
+
+
+.container{
+	margin-left:20px;
+}
+
+.glyphicon{
+ 
+	top: 0px;	
+}
+
+.panel-body ul li {
+	font-size:12px;
+	
+}
+
+.panel{
+	box-shadow: none;
+	border:none;
+}
+
+.panel-default > .panel-heading{
+
+	border: none;
+	background: none;
+	color: #666896;
+	
+
+}
+
+h4{
+	font-weight: lighter;
+	font-size: 25px;
+}
+
+table td {
+    border-top: none !important;
+}
+
+
+.col-md-3 p{
+	padding:9px;
+	font-size:12px;
+	background:#CCFBE9;
+	
+}
+
+.modal-header {
+  background: #337AB7;
+  color:white;
+}
+
+
+
+
+.embed-responsive-16by9{
+  padding-bottom: 20%;
+}
+
+
+a:hover{
+
+	text-decoration: none;
+
+}
+
+.navbar{
+	background-color:rgba(0,0,0,0.7);
+
+}
+
+
+.navbar-default .navbar-nav > li > a {
+   color: white; 
+   transition: all 0.7s;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+   color: red; 
+}
+
+.navbar-default .navbar-nav > li > a:focus {
+   color: red; 
+   background: #E7E7E7;
+    
+}
+
+
+.center-block{
+	text-align: center;
+	margin-top: 100px;
+	
+}
+
+.panel-heading > h4{
+	color:darkred;
+	font-weight: lighter;
+}
+
+table , tr, td{
+	
+	border: 1px solid pink;
+}
+
+
+
+.seat-row{
+	padding-left: 2.5%; 
+	padding-right: 2.5%;
+	padding-top: 2.5%;
+}
+
+
+
+.btn-success{
+	width:5%;
+	border: 3px solid #4cae4c;
+	padding-top: 15%;
+	padding-bottom: 15%;
+	}
+
+
+.btn-success:hover{
+	background: rgb(223, 255, 0);
+	border: 3px   solid #4cae4c ;
+}
+
+
+.btn-success:focus{
+	background: rgb(223, 255, 0);
+	border: 3px  solid #4cae4c ;
+	outline: none;
+  	outline-offset: none;
+
+
+}
+
+.btn-success:focus:active{
+	background: rgb(223, 255, 0);
+	border: 3px   solid #4cae4c ;
+	outline: none;
+  outline-offset: none;
+  box-shadow: none; 
+}
+
+.btn-success:target{
+	background: rgb(223, 255, 0);
+	border: 3px solid #4cae4c ;
+	outline: none;
+	outline-offset: none;
+
+
+}
+
+.exit-row{
+	
+	
+	padding-top: 5%;
+	padding-bottom: 5%;
+	
+}
+
+.seat-row .btn{
+	padding:5px;
+	text-align: center;
+
+}
+
+.btn:focus{
+	outline: none!important;
+	box-shadow: none; 
+}
+
+
+
+.btn-primary{cursor:default;}
+.exit-row .btn-primary:hover,.exit-row .btn-primary:focus{
+	background-color:#337ab7;
+	border-color:#337ab7;
+	cursor:default
+}
+
+
+
+
+
+.btn-payment{
+	padding-top:  3%;
+	padding-right: 2%;
+	padding-bottom: 3%;
+	padding-right: 2%;
+	outline: none!important;
+}
+
+.btn-payment:focus:active{
+	outline: none!important;
+}
+
+.row .col-md-2 .btn-reset{
+	outline: none  !important;
+	display: block;
+}
+
+.btn-reset: focus{
+	outline: none !important;
+	display: block;
+
+}
+
+.btn-reset:active{
+	display: block;
+	outline: none !important;
+}
+
+
+.exit-row .btn-danger{cursor:default;}
+.exit-row .btn-danger:hover, .exit-row .btn-danger:focus{
+	background-color: #d9534f;
+	border-color: #d43f3a;
+	cursor:default;
+}
+
+
+
+.payment-row{
+	padding-bottom:5%;
+}
+
+.form-control[readonly] { 
+	background: white;
+	color:darkred;
+	font-weight: lighter;
+	box-shadow: none;
+	width:50%;
+}
+
+#secimler{
+	border:none;
+}
+
+#secimler: hover, #secimler:focus, #secimler:active {
+	border:none;
+}
+
+#money {
+	width: 100%;
+	background: white;
+	border: none;
+}
+
+.panel-body .row-table{
+	padding-top: 5%;
+	padding-bottom: 5%;
+}
+
+
+.ticketclass {
+
+	border: none;
+	background: white;
+	box-shadow: none;
+
+}
+
+
+
+.ticketclass:focus {
+  border: none;
+  box-shadow: none;
+  outline: 0;
+  }
+
+
+.read-cost {
+	color:darkred;
+	font-weight: lighter;
+}
+
+.ticket-panel{
+	color: black;
+	padding: 10%;
+}
+
+.panel-footer{
+	background: white;
+	border:none;
+
+}
+
+.seatnames {
+	border:none;
+}
+
+
+
+.list-group > li {
+	background: #47b7aa;
+
+}
+
+.list-group > li > a {
+
+	color: white;
+}
+
+
+.btn-xs{
+	margin: 5px;
+}
+
+
+.row-slider {
+	margin:10px;
+}
+
+.ust-menu{
+	background: #47B7AA;
+}
+
+.btn-menu{
+
+	background: #47B7AA;
+}
