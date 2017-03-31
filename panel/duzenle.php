@@ -25,7 +25,12 @@ $filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,
 $updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$poster,$id));
 
 if ($updateing) {
-	echo "Başarılı";
+	echo "Başarılı";?>
+	<script>
+	setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
+
+	</script>
+<?php	
 }
 else {
 

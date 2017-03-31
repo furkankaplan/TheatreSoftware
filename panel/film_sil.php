@@ -8,7 +8,12 @@ $filmler = $db -> prepare("delete from filmler where id=?");
 $deleteing = $filmler->execute (array($film_id));
 
 if ($deleteing) {
-	echo "Silindi"; }
+	echo "Silindi";?>
+	<script>
+	setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
+
+	</script>
+<?php }
 
 	else {
 		echo "Silinmedi";

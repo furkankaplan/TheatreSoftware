@@ -111,6 +111,7 @@ $koltuk = $_POST["koltuknumarasi"];
 
 		<div class="panel-footer text-center">
 			<h6>Bizi tercih ettiğiniz için teşekkür ederiz.</h6>
+      <a href="index.php"><button  id="btn-payment"  class="btn btn-danger btn-payment" >Ana Sayfaya Dön</button></a>
 		</div>
 
 		</div>

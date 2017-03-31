@@ -21,7 +21,12 @@ $slider_film = $db->prepare("insert into slider set slayt_adi=?, slide_resim=?, 
 $adding = $slider_film -> execute(array($slidename,$isim,$slidewriting,$slidelink));
 
 if ($adding) {
-	echo "Başarılı";
+	echo "Başarılı";?>
+	<script>
+	setTimeout(function(){ window.location.href='slider.php'; }, 3000);
+
+	</script>
+<?php
 
 
 	

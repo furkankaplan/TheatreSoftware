@@ -24,7 +24,11 @@ $filmler= $db->prepare("insert into filmler set gosterim_tarihi=?,seans=?,film_a
 $adding = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$resim));
 
 if ($adding) {
-	echo "Başarılı";
+	echo "Başarılı";?>
+	<script>
+
+	</script>
+<?php
 }
 else {
 

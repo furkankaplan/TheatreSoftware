@@ -55,7 +55,12 @@ else{
 
 
 if($slayt_duzenle){
-echo "oldu";
+echo "oldu";?>
+  <script>
+  setTimeout(function(){ window.location.href='slider.php'; }, 3000);
+
+  </script>
+<?php
 
 }
 

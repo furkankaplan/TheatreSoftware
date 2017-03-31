@@ -16,7 +16,12 @@ $kullanicilar= $db->prepare("update kullanicilar set uye_adi=?, uye_soyadi=?, uy
 $updateing = $kullanicilar -> execute(array($isim,$soyisim,$sifre,$eposta,$id));
 
 if ($updateing) {
-	echo "Başarılı";
+	echo "Başarılı";?>
+	<script>
+	setTimeout(function(){ window.location.href='index.php?k=profil'; }, 3000);
+
+	</script>
+<?php
 }
 else {
 
