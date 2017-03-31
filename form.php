@@ -85,17 +85,17 @@ $koltuk = $_POST["koltuknumarasi"];
 				<table class="table">
    			 <tr>
    			 	<td  colspan="2">Oyun İsmi</td>
-   			 	<td  colspan="2">'.$fisim.'</td>
+   			 	<td  colspan="2" style="text-align:right;">'.$fisim.'</td>
    			 </tr>
    			 <tr>
    			 	<td  colspan="2">Seans</td>
-   			 	<td  colspan="2">'.$seans.'</td>
+   			 	<td  colspan="2" style="text-align:right;">'.$seans.'</td>
    			 </tr>
 
    			 <tr>
-   			 	<td  colspan="2"> '.$bilettip.' </td>
-   			 	<td  colspan="1"> '.$koltuk.'  </td>
-   			 	<td  colspan="2"> '.$cost.' ₺ </td>
+   			 	<td  colspan="2" > '.$bilettip.' </td>
+   			 	<td  colspan="1" style="text-align:right;"style="text-align:right;"> '.$koltuk.'  </td>
+   			 	<td  colspan="2" style="text-align:right;"> '.$cost.' </td>
    			 </tr>
    			<tr><td class="text-center"  colspan="5">Müşteri Bilgileri</td></tr>
    			<tr>

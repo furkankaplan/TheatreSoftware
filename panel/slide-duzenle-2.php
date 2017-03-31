@@ -44,8 +44,7 @@ else{
 
    $slide_resim=$_FILES['thumb']['name'];
 
-  
-
+if(!empty($_FILES['thumb']['name'])){
   move_uploaded_file($_FILES['thumb']['tmp_name'],$klasor."/".$_FILES['thumb']['name']); 
 
   $sorgu2=$db->prepare("update slider set slayt_adi=?,slide_resim=?,slide_yazi=?,slide_linki=?,slide_alt_yazisi=?,guncelleyen=?,guncellenme_tarihi=? where id=?");
@@ -68,13 +67,49 @@ echo "oldu";?>
 
 else{
 
-	echo"slayt eklenemedi!!!";
+  echo"slayt eklenemedi!!!";
 
-	$hatam=$sorgu2->errorInfo();
+  $hatam=$sorgu2->errorInfo();
 
-	echo $hatam[2];
+  echo $hatam[2];
 
 }
  
 
+}
+
+else {
+  //Dosya Yüklenmediyse sadece slide bilgilerini güncelle
+
+
+  $sorgu2=$db->prepare("update slider set slayt_adi=?,slide_yazi=?,slide_linki=?,slide_alt_yazisi=?,guncelleyen=?,guncellenme_tarihi=? where id=?");
+
+  $slayt_duzenle=$sorgu2->execute(array($slayt_adi,$slide_yazi,$slide_linki,$slide_alt_yazisi,$guncelleyen,$guncellenme_tarihi,$id));
+
+if($slayt_duzenle){
+echo "oldu2";?>
+  <script>
+  setTimeout(function(){ window.location.href='slider.php'; }, 3000);
+
+  </script>
+<?php
+
+}
+
+
+
+else{
+
+  echo"slayt eklenemedi2!!!";
+
+  $hatam=$sorgu2->errorInfo();
+
+  echo $hatam[2];
+
+}
+ 
+
+
    }
+
+}

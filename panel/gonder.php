@@ -26,6 +26,7 @@ $adding = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$r
 if ($adding) {
 	echo "Başarılı";?>
 	<script>
+	setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
 
 	</script>
 <?php
