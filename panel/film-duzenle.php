@@ -101,6 +101,17 @@ $id=$dizi["id"];
 
 	</div>
 
+<div class="row">
+	
+<div class="col-md-2" style="margin-top: 20px;">
+	
+	<select name="gosterim_turu"  class="form-control">
+  		<option value="0">Vizyonda</option>
+  		<option value="1">Gelecek Gösterim</option>
+    </select>
+
+</div>
+</div>
 
 <div class="row">
 

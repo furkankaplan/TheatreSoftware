@@ -1,4 +1,4 @@
-	<?php 
+<?php 
 include ("connect.php");
 
 $isim = $_POST["fname"];
@@ -7,6 +7,7 @@ $fragman = $_POST["fmovieclip"];
 $tarih = $_POST["tarih"];
 $seans = $_POST["seans"];
 $ozet = $_POST["fsummary"];
+$gosterim_turu =$_POST["gosterim_turu"];
 
 $klasor = "../img/";
 
@@ -19,9 +20,9 @@ move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']
 
 if(($isim!=NULL) && ($stars!= NULL) && ($fragman!=NULL)   && ($tarih!=NULL) && ($seans!=NULL) && ($ozet!=NULL)){
 
-$filmler= $db->prepare("insert into filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?");
+$filmler= $db->prepare("insert into filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=?");
 
-$adding = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$resim));
+$adding = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$resim,$gosterim_turu));
 
 if ($adding) {
 	echo "Başarılı";?>

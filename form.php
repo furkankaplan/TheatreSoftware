@@ -59,67 +59,95 @@ $koltuk = $_POST["koltuknumarasi"];
 
 
 
+
+$biletler=explode(" ",$koltuk);
+
+$toplam_bilet= count($biletler);
+
+
+
+foreach($biletler as $eleman){
+  
+  $koltuk_adi = $eleman;
+
+   $sorgu=$db->prepare("update koltuklar set durum='0' where koltuk_adi=?");
+   $guncelle=$sorgu -> execute(array($koltuk_adi));
+
+   if($guncelle){
+    ?>
+    <div class="row">
+
+    <?php include ("navbar.php");?>
+
+
+
+      <div class="col-md-8 col-md-offset-2" style="margin-top:100px;">
+        <div class="panel panel-default ticket-panel">
+
+        <div class="panel-heading text-center">
+          <h4>Bilet Bilgileriniz</h4>
+
+        </div>
+
+        <div class="panel-body text-center">
+          
+        
+          
+          <div class="row">
+            <?php 
+            echo'
+            <table class="table table-bordered table-striped">
+             <tr>
+              <td  colspan="2" width="40" style="text-align:left;">Film İsmi:</td>
+              <td  colspan="4" style="text-align:left;">'.$fisim.'</td>
+             </tr>
+             <tr>
+             <td colspan="2">Bilet Bilgileri:</td>
+             <td colspan="1">'.$koltuk.'</td>
+             <td colspan="2">'.$tarih.' '.$seans.'</td>
+             <td colspan="1">'.$cost.'&nbsp;<i class="fa fa-try" aria-hidden="true"></i></td>
+             </tr>
+            <tr><td class="text-center"  colspan="6">Müşteri Bilgileri</td></tr>
+            <tr>
+              <td  colspan="2"> '.$isim.' '.$soyisim.'  </td>
+              <td  colspan="2"> '.$emailadress.' </td>
+              <td  colspan="2">  '.$telno.' </td>
+            </tr>
+            </table>
+            ';?>
+          </div>
+
+        </div>
+
+        <div class="panel-footer text-center">
+          <h6>Bizi tercih ettiğiniz için teşekkür ederiz.</h6>
+          <a href="index.php"><button  id="btn-payment"  class="btn btn-danger btn-payment" >Ana Sayfaya Dön</button></a>
+        </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <?php include ("footer.php") ?>
+
+
+
+    
+    <?php 
+   }
+
+   else {
+    $hatam=$sorgu->errorInfo();
+  echo $hatam[2]."<br>";
+    }
+   }
+
+
+
 ?>
 
-<div class="row">
 
-<?php include ("navbar.php");?>
-
-
-
-	<div class="col-md-8 col-md-offset-2" style="margin-top:100px;">
-		<div class="panel panel-default ticket-panel">
-
-		<div class="panel-heading text-center">
-			<h4>Bilet Bilgileriniz</h4>
-
-		</div>
-
-		<div class="panel-body text-center">
-			
-		
-			
-			<div class="row">
-				<?php 
-        echo'
-				<table class="table">
-   			 <tr>
-   			 	<td  colspan="2">Oyun İsmi</td>
-   			 	<td  colspan="2" style="text-align:right;">'.$fisim.'</td>
-   			 </tr>
-   			 <tr>
-   			 	<td  colspan="2">Seans</td>
-   			 	<td  colspan="2" style="text-align:right;">'.$seans.'</td>
-   			 </tr>
-
-   			 <tr>
-   			 	<td  colspan="2" > '.$bilettip.' </td>
-   			 	<td  colspan="1" style="text-align:right;"style="text-align:right;"> '.$koltuk.'  </td>
-   			 	<td  colspan="2" style="text-align:right;"> '.$cost.' </td>
-   			 </tr>
-   			<tr><td class="text-center"  colspan="5">Müşteri Bilgileri</td></tr>
-   			<tr>
-   				<td  colspan="2"> '.$isim.' '.$soyisim.'  </td>
-   				<td  colspan="1"> '.$emailadress.' </td>
-   				<td  colspan="2">  '.$telno.' </td>
-   			</tr>
-   			</table>
-        ';?>
-			</div>
-
-		</div>
-
-		<div class="panel-footer text-center">
-			<h6>Bizi tercih ettiğiniz için teşekkür ederiz.</h6>
-      <a href="index.php"><button  id="btn-payment"  class="btn btn-danger btn-payment" >Ana Sayfaya Dön</button></a>
-		</div>
-
-		</div>
-
-	</div>
-
-</div>
-
-<?php include ("footer.php") ?>
 </body>
 </html>

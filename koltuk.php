@@ -76,56 +76,82 @@ $id=$dizi["id"];
   		
 		
 		<div class="row seat-row" >
-		<button class="btn btn-success" value="A1">A1</button>
-		<button class="btn btn-success" value="A2">A2</button>
-		<button class="btn btn-success" value="A3">A3</button>
-		<button class="btn btn-success" value="A4">A4</button>
-		<button class="btn btn-success" value="A5">A5</button>
-		<button class="btn btn-success" value="A6">A6</button>
-		<button class="btn btn-success" value="A7">A7</button>
-		<button class="btn btn-success" value="A8">A8</button>
-		<button class="btn btn-success" value="A9">A9</button>
-		<button class="btn btn-success" value="A10">A10</button>
-		<button class="btn btn-success" value="A11">A11</button>
-		<button class="btn btn-success" value="A12">A12</button>
-		<button class="btn btn-success" value="A13">A13</button>
-		<button class="btn btn-success" value="A14">A14</button>
-		<button class="btn btn-success" value="A15">A15</button>
+		
+		<?php 
+		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%A%'");
+		$a -> execute(array());
 
+		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+
+		foreach ($adizi as $eleman) {
+			$koltuk_adi=$eleman["koltuk_adi"];
+			$durum=$eleman["durum"];
+			
+			if($durum=='0'){
+				$hazir = "disabled";
+			}
+			else{
+				$hazir=" ";
+			}
+
+			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+			# code...
+		}
+
+
+		?>
 		</div>
 
 		<div class="row seat-row" >
-		<button class="btn btn-success" value="B1">B1</button>
-		<button class="btn btn-success" value="B2">B2</button>
-		<button class="btn btn-success" value="B3">B3</button>
-		<button class="btn btn-success" value="B4">B4</button>
-		<button class="btn btn-success" value="B5">B5</button>
-		<button class="btn btn-success" value="B6">B6</button>
-		<button class="btn btn-success" value="B7">B7</button>
-		<button class="btn btn-success" value="B8">B8</button>
-		<button class="btn btn-success" value="B9">B9</button>
-		<button class="btn btn-success" value="B10">B10</button>
-		<button class="btn btn-success" value="B11">B11</button>
-		<button class="btn btn-success" value="B12">B12</button>
-		<button class="btn btn-success" value="B13">B13</button>
-		<button class="btn btn-success" value="B14">B14</button>
+
+		<?php 
+		$b= $db->prepare ("select * from koltuklar where koltuk_adi like '%B%'");
+		$b -> execute(array());
+
+		$bdizi=$b->fetchALL(PDO::FETCH_ASSOC);
+
+		foreach ($bdizi as $eleman) {
+			$koltuk_adi=$eleman["koltuk_adi"];
+			$durum=$eleman["durum"];
+			
+			if($durum=='0'){
+				$hazir = "disabled";
+			}
+			else{
+				$hazir=" ";
+			}
+				echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+			# code...
+		}
+
+
+		?>
+		
 		</div>
 		
 
-		<div class="row seat-row" >
-		<button class="btn btn-success" value="C1">C1</button>
-		<button class="btn btn-success" value="C2">C2</button>
-		<button class="btn btn-success" value="C3">C3</button>
-		<button class="btn btn-success" value="C4">C4</button>
-		<button class="btn btn-success" value="C5">C5</button>
-		<button class="btn btn-success" value="C6">C6</button>
-		<button class="btn btn-success" value="C7">C7</button>
-		<button class="btn btn-success" value="C8">C8 </button>
-		<button class="btn btn-success" value="C9">C9 </button>
-		<button class="btn btn-success" value="C10">C10 </button>
-		<button class="btn btn-success" value="C11">C11 </button>
-		<button class="btn btn-success" value="C12">C12 </button>
-		<button class="btn btn-success" value="C13">C13 </button>
+		<div class="row seat-row" ><?php 
+		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%C%'");
+		$a -> execute(array());
+
+		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+
+		foreach ($adizi as $eleman) {
+			$koltuk_adi=$eleman["koltuk_adi"];
+			$durum=$eleman["durum"];
+			
+			if($durum=='0'){
+				$hazir = "disabled";
+			}
+			else{
+				$hazir=" ";
+			}	
+			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+			# code...
+		}
+
+
+		?>
 
 		</div>
 
@@ -139,59 +165,83 @@ $id=$dizi["id"];
 
 
 		<div class="row seat-row" >
-		<button class="btn btn-success" value="D1">D1</button>
-		<button class="btn btn-success" value="D2">D2</button>
-		<button class="btn btn-success" value="D3">D3</button>
-		<button class="btn btn-success" value="D4">D4</button>
-		<button class="btn btn-success" value="D5">D5</button>
-		<button class="btn btn-success" value="D6">D6</button>
-		<button class="btn btn-success" value="D7">D7</button>
-		<button class="btn btn-success" value="D8">D8</button>
-		<button class="btn btn-success" value="D9">D9</button>
-		<button class="btn btn-success" value="D10">D10</button>
-		<button class="btn btn-success" value="D11">D11</button>
-		<button class="btn btn-success" value="D12">D12</button>
-		<button class="btn btn-success" value="D13">D13</button>
-		<button class="btn btn-success" value="D14">D14</button>
-		<button class="btn btn-success" value="D15">D15</button>
+		<?php 
+		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%D%'");
+		$a -> execute(array());
+
+		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+
+		foreach ($adizi as $eleman) {
+			$koltuk_adi=$eleman["koltuk_adi"];
+			$durum=$eleman["durum"];
+			
+			if($durum=='0'){
+				$hazir = "disabled";
+			}
+			else{
+				$hazir=" ";
+			}
+			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+			# code...
+		}
+
+
+		?>
 
 		</div>
 
 
 
 		<div class="row seat-row" >
-		<button class="btn btn-success" value="E1">E1</button>
-		<button class="btn btn-success" value="E2">E2</button>
-		<button class="btn btn-success" value="E3">E3</button>
-		<button class="btn btn-success" value="E4">E4</button>
-		<button class="btn btn-success" value="E5">E5</button>
-		<button class="btn btn-success" value="E6">E6</button>
-		<button class="btn btn-success" value="E7">E7</button>
-		<button class="btn btn-success" value="E8">E8</button>
-		<button class="btn btn-success" value="E9">E9</button>
-		<button class="btn btn-success" value="E10">E10</button>
-		<button class="btn btn-success" value="E11">E11</button>
-		<button class="btn btn-success" value="E12">E12</button>
-		<button class="btn btn-success" value="E13">E13</button>
-		<button class="btn btn-success" value="E14">E14</button>
+		<?php 
+		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%E%'");
+		$a -> execute(array());
+
+		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+
+		foreach ($adizi as $eleman) {
+			$koltuk_adi=$eleman["koltuk_adi"];
+			$durum=$eleman["durum"];
+			
+			if($durum=='0'){
+				$hazir = "disabled";
+			}
+			else{
+				$hazir=" ";
+			}
+				echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+			# code...
+		}
+
+
+		?>
 		
 
 		</div>
 
 		<div class="row seat-row" >
-		<button class="btn btn-success" value="F1" id="122324"> F1</button>
-		<button class="btn btn-success" value="F2"> F2</button>
-		<button class="btn btn-success" value="F3"> F3</button>
-		<button class="btn btn-success" value="F4"> F4</button>
-		<button class="btn btn-success" value="F5"> F5</button>
-		<button class="btn btn-success" value="F6"> F6</button>
-		<button class="btn btn-success" value="F7"> F7</button>
-		<button class="btn btn-success" value="F8"> F8</button>
-		<button class="btn btn-success" value="F9"> F9</button>
-		<button class="btn btn-success" value="F10"> F10</button>
-		<button class="btn btn-success" value="F11"> F11</button>
-		<button class="btn btn-success" value="F12"> F12</button>
-		<button class="btn btn-success" value="F13"> F13</button>
+		<?php 
+		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%F%'");
+		$a -> execute(array());
+
+		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+
+		foreach ($adizi as $eleman) {
+			$koltuk_adi=$eleman["koltuk_adi"];
+			$durum=$eleman["durum"];
+			
+			if($durum=='0'){
+				$hazir = "disabled";
+			}
+			else{
+				$hazir=" ";
+			}
+			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+			# code...
+		}
+
+
+		?>
 
 
 		</div>

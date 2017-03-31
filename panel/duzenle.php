@@ -10,6 +10,8 @@ $tarih = $_POST["tarih"];
 $seans = $_POST["seans"];
 $ozet = $_POST["fsummary"];
 $id=$_POST["id"];
+$gosterim_turu =$_POST["gosterim_turu"];
+
 
 
  $klasor="../img";
@@ -20,9 +22,9 @@ $id=$_POST["id"];
 
   move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']['name']); 
 
-$filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=? where id=?");
+$filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=? where id=?");
 
-$updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$poster,$id));
+$updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$poster,$gosterim_turu,$id));
 
 if ($updateing) {
 	echo "Başarılı";?>
@@ -43,9 +45,9 @@ echo $hatam[2];
 else {
   //Dosya Yüklenmediyse sadece slide bilgilerini güncelle
 
-$filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=? where id=?");
+$filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,gosterim_turu=? where id=?");
 
-$updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$id));
+$updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$gosterim_turu,$id));
   
 
 if($updateing){

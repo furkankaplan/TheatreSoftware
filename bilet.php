@@ -62,8 +62,12 @@ $id=$dizi["id"];
  ?>
 
 <?php 
-$deger = $_POST["ticket"];
+$deger = trim($_POST["ticket"]);
 $ticketNums = $_POST["ticketNum"];
+
+
+
+
 
 $ticketcosting= $ticketNums * 10
 
