@@ -69,19 +69,7 @@ session_start();
 
 <?php 
 	 
-	$database ="deneme";
-    $host =  "localhost";
-    $dbuser = "root";
-    $dbpass = "";
-   
-   
-   try{
-	   $db= new PDO("mysql:host=$host;dbname=$database;charset=utf8","$dbuser","$dbpass");
-   }
-   catch(PDOException $hata){
-	   print $hata->getMessage();
-	   echo("HATA! veritabanına bağlanılamadı");
-   }
+include("connect.php");
 	 
    $email=$_POST["email"];
    $sifre=$_POST["sifre"];

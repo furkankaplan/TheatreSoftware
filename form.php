@@ -24,6 +24,27 @@
 </head>
 <body>
 
+<?php 
+
+include ("connect.php");
+
+$id=$_GET["y"];
+
+$filmler = $db ->prepare("select * from filmler where id=? ");
+$filmler -> execute(array($id));
+$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
+
+$fisim = $dizi["film_adi"];
+$oyuncular = $dizi["oyuncular"];
+$ozet = $dizi["ozet"];
+$seans = $dizi["seans"];
+$poster = $dizi["afis"];
+$fragman = $dizi["fragman"];
+$tarih = $dizi["gosterim_tarihi"];
+$id=$dizi["id"];
+
+ ?>
+
 
 	<?php 
 $isim = $_POST["name"];
@@ -59,29 +80,31 @@ $koltuk = $_POST["koltuknumarasi"];
 		
 			
 			<div class="row">
-				
+				<?php 
+        echo'
 				<table class="table">
    			 <tr>
    			 	<td  colspan="2">Oyun İsmi</td>
-   			 	<td  colspan="2">İsim</td>
+   			 	<td  colspan="2">'.$fisim.'</td>
    			 </tr>
    			 <tr>
    			 	<td  colspan="2">Seans</td>
-   			 	<td  colspan="2">Saat&Tarih</td>
+   			 	<td  colspan="2">'.$seans.'</td>
    			 </tr>
 
    			 <tr>
-   			 	<td  colspan="2"><?php echo $bilettip; ?></td>
-   			 	<td  colspan="1"><?php echo $koltuk; ?> </td>
-   			 	<td  colspan="2"><?php echo $cost ;?>₺ </td>
+   			 	<td  colspan="2"> '.$bilettip.' </td>
+   			 	<td  colspan="1"> '.$koltuk.'  </td>
+   			 	<td  colspan="2"> '.$cost.' ₺ </td>
    			 </tr>
    			<tr><td class="text-center"  colspan="5">Müşteri Bilgileri</td></tr>
    			<tr>
-   				<td  colspan="2"><?php echo $isim; ?> <?php echo $soyisim; ?> </td>
-   				<td  colspan="1"><?php echo $emailadress; ?></td>
-   				<td  colspan="2"><?php echo $telno; ?></td>
+   				<td  colspan="2"> '.$isim.' '.$soyisim.'  </td>
+   				<td  colspan="1"> '.$emailadress.' </td>
+   				<td  colspan="2">  '.$telno.' </td>
    			</tr>
    			</table>
+        ';?>
 			</div>
 
 		</div>

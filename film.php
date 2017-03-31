@@ -17,86 +17,76 @@
 
     <style type="text/css">
         body{
-            margin-top:50px;
+            margin-top:150px;
         }
     </style>
 </head>
 
-<body>
+<body >
+
 
 <?php 
-
 include ("connect.php");
+include ("navbar.php");  
+?> 
 
-$id=@$_GET["id"];
 
-$filmler = $db ->prepare("select * from filmler where id=? ");
-$filmler -> execute(array($id));
-$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
 
-$isim = $dizi["film_adi"];
-$oyuncular = $dizi["oyuncular"];
-$ozet = $dizi["ozet"];
-$sira_no = $dizi["sira_no"];
-$poster = $dizi["afis"];
-$fragman = $dizi["fragman"];
-$tarih = $dizi["gosterim_tarihi"];
-$id=$dizi["id"];
 
- ?>
+<?php include("navbar.php"); 
 
-<?php include("navbar.php"); ?>
+$id=$_GET["k"];
 
-   
-    <div class="row">
-    <div class="col-md-4">
-    <div class="panel panel-default">
-    <div class="panel-body">
-        <img src="img/logan-dikey.jpg" class="img-responsive" alt=""/>
-        <h4 class="text-center" value="<?php echo $isim ?>"></h4>
-    </div>
-    </div>
-    </div>
-<div class="col-md-8">
-    
-    <div class="panel panel-default">
-        <div class="panel-body">
-                        <div class="row">
-                <table class="dataTable-example table table-striped">
-                <thead>
-                    <tr>
-                        <th>Film Adı</th>
-                        <th>Gösterim Tarihi</th>
-                        
-                        
-                    </tr>
-                    </thead>
 
-                    <tbody>
-                      <?php 
-                     $filmler = $db ->prepare("select * from filmler");
-                     $filmler -> execute(array());
+                     
+                     $filmler = $db ->prepare("select * from filmler where id=?");
+                     $filmler -> execute(array($id));
                      $dizi = $filmler -> fetchALL(PDO::FETCH_ASSOC);
 
                      foreach ($dizi as $elements) {
                         $id = $elements["id"];
                         $film_adi= $elements["film_adi"];
-                        $sira_no = $elements["sira_no"];
+                        $seans = $elements["seans"];
+                        $oyuncular =$elements["oyuncular"];
+                        $ozet =$elements["ozet"];
                         $gosterim_tarihi = $elements["gosterim_tarihi"];
-
-                        echo ' <tr>
-                        <td>'.$film_adi.'</td>
-                        <td>'.$gosterim_tarihi.'</td>
+                        $afis = $elements["afis"];
+                        $fragman = $elements ["fragman"];
                         
-                        
-                        </tr>';
+
+                        echo '   <div class="row">
+   
+       <div class="col-md-6"><div class="embed-responsive embed-responsive-4by3 ">
+          <iframe class="embed-responsive-item" src="'.$fragman.'"></iframe>
+        </div>
+        </div>
+        <h4 class="text-center" value="'.$film_adi.'"></h4>
+    
+<div class="col-md-6">
+    
+    <div class="panel panel-default">
+        <div class="panel-body">
+                        <div class="row">
+                <table class="dataTable-example table film-table">
+                
+
+                    <tbody>
+                        <tr><td width="25%">Film İsmi:</td> <td>'.$film_adi.'</td> </tr>
+                        <tr><td>Oyuncular: </td> <td>'.$oyuncular.'</td></tr>
 
 
-                     }
+                        <tr><td>Özet: </td> <td>'.$ozet.' </td></tr>
+
+
+                        <tr><td>Seans Uzunluğu: </td><td>'.$seans.'</td></tr>
+
+                        <tr><td colspan="2"><a class="btn btn-warning btn-xs pull-right" href="koltuk.php?x='.$id.'" role="button">Bilet Al</a</td></tr>
+
+                     
 
 
 
-                      ?>
+                    
                     </tbody>
                 </table>
             </div>
@@ -107,6 +97,12 @@ $id=$dizi["id"];
 
 
 
-</div>
+</div>';
 
+}?>
+
+<div class="row" style="margin-top: 50px;">
+<?php include ("footer.php") ?>
+</div>
 </body>
+</html>

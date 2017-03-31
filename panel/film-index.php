@@ -11,7 +11,7 @@
     <script src="js/jasny-bootstrap.min.js"></script>
     <script src="js/datatables.min.js"></script>
     <script src="js/jquery-3.2.0.slim.min.js"></script>
-    <link href= ="css/font-awesome.min.css" rel="stylesheet">
+    <link href= "css/font-awesome.min.css" rel="stylesheet">
     <link href="css/hover.css" rel="stylesheet">    
     <link href="css/jasny-bootstrap.min.css" rel="stylesheet">  
      <link href="css/datatables.min.css" rel="stylesheet"> 
@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<?php include ("film_db.php"); ?>
+<?php include ("connect.php"); ?>
 
 
 <script>
@@ -45,7 +45,7 @@ $(document).ready(function(){
                     <tr>
                         <th>Film Adı</th>
                         <th>Gösterim Tarihi</th>
-                        <th>Sıra Numarası</th>
+                        <th>Seans Süresi</th>
                         <th>Yönet</th>
                     </tr>
                     </thead>
@@ -59,13 +59,13 @@ $(document).ready(function(){
                      foreach ($dizi as $elements) {
                         $id = $elements["id"];
                         $film_adi= $elements["film_adi"];
-                        $sira_no = $elements["sira_no"];
+                        $seans = $elements["seans"];
                         $gosterim_tarihi = $elements["gosterim_tarihi"];
 
                         echo ' <tr>
                         <td>'.$film_adi.'</td>
                         <td>'.$gosterim_tarihi.'</td>
-                        <td>'.$sira_no.'</td>
+                        <td>'.$seans.'</td>
                         <td>
                         <a class="btn btn-warning btn-xs" href="filmler.php?x=filmduzenle&id='.$id.'" role="button">D</a>
 

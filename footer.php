@@ -6,6 +6,20 @@
 
 
 <body>
+
+<?php
+include ("connect.php");
+
+$sosyalmedya = $db ->prepare("select * from sosyalmedya");
+$sosyalmedya -> execute(array());
+$dizi = $sosyalmedya -> fetch(PDO::FETCH_ASSOC);
+
+$facebook = $dizi["facebook"];
+$googleplus=$dizi["googleplus"];
+$instagram=$dizi["instagram"];
+
+
+?>
 	
 <footer>
 	<div class="container">
@@ -30,9 +44,9 @@
 		
 		<div class="col-md-2 col-xs-2 social">
 			<h3>Sosyal Medya</h3>
-			<a href="#"><i class="fa fa-facebook hvr-grow"  aria-hidden="true"></i></a>
-			<a href="#"><i class="fa fa-google-plus hvr-grow" aria-hidden="true"></i></a>
-			<a href="#"><i class="fa fa-linkedin hvr-grow" aria-hidden="true"></i></a>
+			<a href="<?php echo $facebook?>"><i class="fa fa-facebook hvr-grow"  aria-hidden="true"></i></a>
+			<a href="<?php echo $googleplus?>"><i class="fa fa-google-plus hvr-grow" aria-hidden="true"></i></a>
+			<a href="<?php echo $instagram?>"><i class="fa fa-instagram hvr-grow" aria-hidden="true"></i></a>
 			
 		</div>
 		</div>

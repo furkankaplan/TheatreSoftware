@@ -1,5 +1,3 @@
-
-
 <style>
     .jssorb05{position:absolute}.jssorb05 div,.jssorb05 div:hover,.jssorb05 .av{position:absolute;width:16px;height:16px;background:url('img/b05.png') no-repeat;overflow:hidden;cursor:pointer}.jssorb05 div{background-position:-7px -7px}.jssorb05 div:hover,.jssorb05 .av:hover{background-position:-37px -7px}.jssorb05 .av{background-position:-67px -7px}.jssorb05 .dn,.jssorb05 .dn:hover{background-position:-97px -7px}.jssora22l,.jssora22r{display:block;position:absolute;width:40px;height:58px;cursor:pointer;background:url('img/a22.png') center center no-repeat;overflow:hidden}.jssora22l{background-position:-10px -31px}.jssora22r{background-position:-70px -31px}.jssora22l:hover{background-position:-130px -31px}.jssora22r:hover{background-position:-190px -31px}.jssora22l.jssora22ldn{background-position:-250px -31px}.jssora22r.jssora22rdn{background-position:-310px -31px}.jssora22l.jssora22lds{background-position:-10px -31px;opacity:.3;pointer-events:none}.jssora22r.jssora22rds{background-position:-70px -31px;opacity:.3;pointer-events:none}
 </style>
@@ -11,48 +9,43 @@
     </div>
     <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
 
+<?php 
 
-        <div data-p="225.00">
-        <a href="koltuk.php">
-            <img data-u="image" src="img/logan.png" alt="" />
+            include ("connect.php");
 
+           $slider = $db ->prepare("select * from slider");
+                     $slider -> execute(array());
+                     $dizi = $slider -> fetchALL(PDO::FETCH_ASSOC);
+
+                     foreach ($dizi as $elements) {
+                        $id = $elements["id"];
+                        $slidename= $elements["slayt_adi"];
+                        $slide_resmi = $elements["slide_resim"];
+                        $slide_yazi = $elements["slide_yazi"];
 
             
-                <h1  class="wow slideInLeft" data-u="caption" data-t="7"
+            echo ' <div data-p="225.00">
+                
+                <img data-u="image" src="img/'.$slide_resmi.'" alt="" />
+                 <h1  class="wow slideInLeft" data-u="caption" data-t="7"
                             style="color:white;padding:30px;background:rgba(0,0,0,1);font-weight:bold; position: absolute;
-margin-top: 20%; margin-left: 40%; margin-right:10%; margin-top: 25%" > Logan </h1> </a>
-        </div>
-		
-		
-		
-		
-		
-		<div data-p="225.00">
-		<a href="koltuk.php">
-		<img data-u="image" src="img/rocky.jpg" alt="" />
-		
-		  
-                <h1  class="wow slideInLeft" data-u="caption" data-t="7"
-                            style="color:white;padding:30px;background:rgba(0,0,0,1);font-weight:bold; position: absolute;
-margin-top: 20%; margin-left: 40%; margin-right:10%; margin-top: 25%" > Rocky  </h1> </a>
-		</div>
-		
-		
-		
+margin-top: 20%; margin-left: 40%; margin-right:10%; margin-top: 25%" >'.$slide_yazi.' </h1> 
+        </div>';
+}
+
+
+            ?>
+
+
+
+       
 		
 		
 
-        <div data-p="225.00">
-        <a href="koltuk.php">
-            <img data-u="image" src="img/godfather.png" style="width:100%; height:100%" alt=""/>
-			
-			  
-                <h1  class="wow slideInLeft" data-u="caption" data-t="7"
-                            style="color:white;padding:30px;background:rgba(0,0,0,1);font-weight:bold; position: absolute;
-margin-top: 20%; margin-left: 40%; margin-right:10%; margin-top: 25%" > Godfather </h1> </a>
-        </div>
-
-
+		
+		
+		
+		
 
 
     </div>

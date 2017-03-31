@@ -19,6 +19,27 @@
 </head>
 <body>
 
+<?php 
+
+include ("connect.php");
+
+$id=$_GET["x"];
+
+$filmler = $db ->prepare("select * from filmler where id=? ");
+$filmler -> execute(array($id));
+$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
+
+$isim = $dizi["film_adi"];
+$oyuncular = $dizi["oyuncular"];
+$ozet = $dizi["ozet"];
+$seans = $dizi["seans"];
+$poster = $dizi["afis"];
+$fragman = $dizi["fragman"];
+$tarih = $dizi["gosterim_tarihi"];
+$id=$dizi["id"];
+
+ ?>
+
 
 
 <?php
@@ -37,17 +58,22 @@
   		<div class="panel-heading"><h4>Koltuk Seçimi</h4></div>
 
   		<!-- Table -->
-  		<table class="table">
+  		<?php
+
+  		echo ' <table class="table">
    			 <tr>
    			 	<td>Oyun İsmi</td>
-   			 	<td>İsim</td>
+   			 	<td>'.$isim.'</td>
    			 </tr>
    			 <tr>
    			 	<td>Seans</td>
-   			 	<td>Saat&Tarih</td>
+   			 	<td>'.$seans.'</td>
    			 </tr>
    			
-  		</table>
+  		</table>';
+
+  		?>
+  		
 		
 		<div class="row seat-row" >
 		<button class="btn btn-success" value="A1">A1</button>
@@ -178,7 +204,7 @@
 	
 
 <div class="row payment-row">
-	  <form action="bilet.php" method="post">
+	  <form action="bilet.php?b=<?php echo $id;?>" method="post">
  		<div class="col-md-7"><input type="text" class="form-control pull-right" id="secimler" name="ticket" value=" " readonly></div> 
    	<div class="col-md-3"><input type="submit" disabled="true" value=" BİLETİ ONAYLA" id="btn-payment"  class="btn btn-danger btn-payment" onclick="seatTaken()"></button></div>
    	<div class="col-md-2"><input type="reset" onclick="sifirla()"  value="Sıfırla" class="btn btn-warning btn-reset"></input></div>

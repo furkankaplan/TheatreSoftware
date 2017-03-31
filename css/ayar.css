@@ -153,12 +153,16 @@ table td {
   padding-bottom: 20%;
 }
 
+.embed-responsive-4by3 {
+  padding-bottom: 50%;
+}
 
 a:hover{
 
 	text-decoration: none;
 
 }
+
 
 .navbar{
 	background-color:rgba(0,0,0,0.7);
@@ -193,10 +197,7 @@ a:hover{
 	font-weight: lighter;
 }
 
-table , tr, td{
-	
-	border: 1px solid pink;
-}
+
 
 
 

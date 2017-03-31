@@ -11,7 +11,7 @@
     <script src="js/jasny-bootstrap.min.js"></script>
     <script src="js/datatables.min.js"></script>
     <script src="js/jquery-3.2.0.slim.min.js"></script>
-    <link href= ="css/font-awesome.min.css" rel="stylesheet">
+    <link href= "css/font-awesome.min.css" rel="stylesheet">
     <link href="css/hover.css" rel="stylesheet">    
     <link href="css/jasny-bootstrap.min.css" rel="stylesheet">  
      <link href="css/datatables.min.css" rel="stylesheet"> 
@@ -23,31 +23,44 @@
 <?php include ("film_db.php"); ?>
 
 
-<script>
-
-$(document).ready(function(){
-    $('.dataTables-example').DataTable({
-        pageLength : 25,
-        responsive : true
-    });
-
-    
-});
-
-</script>
     
     <div class="row ust-menu">
 
-        <button class="btn btn-menu pull-right">Oturumu kapat</button>
+        <a href="logout.php"><button class="btn btn-menu pull-right">Oturumu kapat</button></a>
     </div>
 
 
     <div class="row">
-        <div class="col-md-3">
+      <div class="col-md-3">
             <?php include ("solmenu.php"); ?>
-        </div>
+</div>
 
 
-    </div>
+<div class="col-md-9">
+<?php
+
+$k=@$_GET["k"];
+
+switch ($k) {
+
+    case 'sosyal':
+    include("medya.php");
+    break;
+
+    case 'profil':
+    include ("profil.php");
+    break;
+
+    
+                
+    
+}
+
+
+
+?>
+</div>
+
+
 </body>
 </html>

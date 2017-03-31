@@ -2,7 +2,7 @@
 
 <div class="container" >
 
-<form action="gonder.php" method="POST">
+<form action="gonder.php" method="POST" enctype='multipart/form-data'>
 		<div class="row">
 		<div class="col-md-4">
 		<h4>Film Adı</h4>
@@ -31,16 +31,16 @@
 
 	<div class="row">
 		<div class="col-md-4">
-		<h4>Sıra Numarası</h4>
+		<h4>Seans Süresi</h4>
 		<div class="input-group">
-		<input type="number" class="form-control" placeholder="" name="fnumber" required>
+		<input type="number" class="form-control" placeholder="" name="seans" required>
 		</div>
 		</div>
 		
 		<div class="col-md-4">
-		<h4>Afiş Linki</h4>
+		<h4>Afiş</h4>
 		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Afiş Linki" name="fposter"  >
+		<input type="file" class="form-control" placeholder="Afiş" name="fposter"  required>
 		</div>
 		</div>
 

@@ -10,7 +10,7 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jasny-bootstrap.min.js"></script>
     <script src="js/jquery-3.2.0.slim.min.js"></script>
-    <link href= ="css/font-awesome.min.css" rel="stylesheet">
+    <link href ="css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/hover.css" rel="stylesheet">	
 		<link href="css/jasny-bootstrap.min.css" rel="stylesheet">	
 
@@ -23,9 +23,9 @@
 
 	<ul class="list-group">
 	  <li class="list-group-item"><a href="filmler.php">Filmler</a></li>
-	  <li class="list-group-item"><a href="">Profil</a></li>
-	  <li class="list-group-item"><a href="">Sosyal Medya</a></li>
-	  <li class="list-group-item"><a href="">Slider</a></li>
+	  <li class="list-group-item"><a href="index.php?k=profil">Profil</a></li>
+	  <li class="list-group-item"><a href="index.php?k=sosyal">Sosyal Medya</a></li>
+	  <li class="list-group-item"><a href="slider.php">Slider</a></li>
 	 
 	</ul>
 

@@ -11,6 +11,8 @@
     <script src="js/jasny-bootstrap.min.js"></script>
     <script src="js/slider.min.js"></script>
     <link href="css/font-awesome.min.css" rel="stylesheet">
+      <link href="css/imageupload.css" rel="stylesheet"> 
+ <script src="js/imageupload.js"></script>
 	<link href="css/hover.css" rel="stylesheet">	
 	<link href="css/jasny-bootstrap.min.css" rel="stylesheet">	
     <link href="css/ayar.css" rel="stylesheet">
@@ -34,7 +36,7 @@ $dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
 $isim = $dizi["film_adi"];
 $oyuncular = $dizi["oyuncular"];
 $ozet = $dizi["ozet"];
-$sira_no = $dizi["sira_no"];
+$seans = $dizi["seans"];
 $poster = $dizi["afis"];
 $fragman = $dizi["fragman"];
 $tarih = $dizi["gosterim_tarihi"];
@@ -46,7 +48,7 @@ $id=$dizi["id"];
 
 <div class="container-fluid" >
 
-<form action="duzenle.php" method="POST">
+<form action="duzenle.php" method="POST" enctype="multipart/form-data">
 		<div class="row">
 		<div class="col-md-4">
 		<h4>Film Adı</h4>
@@ -66,7 +68,8 @@ $id=$dizi["id"];
 		<div class="col-md-4">
 		<h4>Özet</h4>
 		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Özet" name="fsummary"  value="<?php echo $ozet; ?>" required>
+		<textarea  class="form-control" placeholder="Özet" name="fsummary"  value="<?php echo $ozet; ?>" required rows="4" cols="50"> </textarea>
+		
 		</div>
 		</div>
 
@@ -75,19 +78,19 @@ $id=$dizi["id"];
 
 	<div class="row">
 		<div class="col-md-4">
-		<h4>Sıra Numarası</h4>
+		<h4>Seans Süresi</h4>
 		<div class="input-group">
-		<input type="number" class="form-control" placeholder="" name="fnumber" value="<?php echo $sira_no; ?>" required>
-		</div>
-		</div>
-		
-		<div class="col-md-4">
-		<h4>Afiş Linki</h4>
-		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Afiş Linki" name="fposter"  value="<?php echo $poster; ?>" >
+		<input type="number" class="form-control" placeholder="" name="seans" value="<?php echo $seans; ?>" required>
 		</div>
 		</div>
 
+		<div class="col-md-4">
+		<h4>Gösterim Tarihi</h4>
+		<div class="input-group">
+		<input type="date" class="form-control" placeholder="Fragman Linki" name="tarih" value="<?php echo $tarih; ?>"  required>
+		</div>
+		</div>
+		
 		<div class="col-md-4">
 		<h4>Fragman Linki</h4>
 		<div class="input-group">
@@ -101,18 +104,26 @@ $id=$dizi["id"];
 
 <div class="row">
 
-<div class="col-md-4"></div>
+<div class="col-md-4">
+		<h4>Afiş</h4>
+		<div class="dropzone" data-width="900" data-height="500"  data-image="../img/<?php echo $poster;?>" style="width:400px; height:300px; ">
+
+		<input type="file" name="fposter"   />
 
 
-	<div class="col-md-5">
-		<h4>Gösterim Tarihi</h4>
-		<div class="input-group">
-		<input type="date" class="form-control" placeholder="Fragman Linki" name="tarih" value="<?php echo $tarih; ?>"  required>
+
 		</div>
+
+		<input type="hidden"  name="fposter" id="fposter" value="<?php echo $poster;?>"  class="form-control"/>
+
 		</div>
+
+
+
+	
 </div>
 
-<div class="col-md-3"><input type="submit"  value=" Filmi Düzenle" id="btn-payment"  class="btn btn-danger pull-left"></button></div>
+<div class="col-md-9"><input type="submit"  value=" Filmi Düzenle" id="btn-payment"  class="btn btn-danger pull-right"></button></div>
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 
 </form>
@@ -120,3 +131,23 @@ $id=$dizi["id"];
 
 </body>
 
+
+<script>
+
+$('.dropzone').html5imageupload({
+
+onAfterProcessImage: function() {
+
+$('#Resim').val($(this.element).data('name'));
+
+},
+
+onAfterCancel: function() {
+
+$('#Resim').val('');
+
+}
+
+});
+
+</script>

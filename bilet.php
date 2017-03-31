@@ -36,6 +36,27 @@ function kontrol(aForm){
 
 <body>
 
+<?php 
+
+include ("connect.php");
+
+$id=@$_GET["b"];
+
+$filmler = $db ->prepare("select * from filmler where id=? ");
+$filmler -> execute(array($id));
+$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
+
+$isim = $dizi["film_adi"];
+$oyuncular = $dizi["oyuncular"];
+$ozet = $dizi["ozet"];
+$seans = $dizi["seans"];
+$poster = $dizi["afis"];
+$fragman = $dizi["fragman"];
+$tarih = $dizi["gosterim_tarihi"];
+$id=$dizi["id"];
+
+ ?>
+
 <?php
 	include ("navbar.php");
  ?>
@@ -44,7 +65,7 @@ function kontrol(aForm){
 $deger = $_POST["ticket"];
 $ticketNums = $_POST["ticketNum"];
 
-
+$ticketcosting= $ticketNums * 10
 
 ?>
 
@@ -52,24 +73,25 @@ $ticketNums = $_POST["ticketNum"];
 <div class="row" style="margin:100px;">
 
 
-<form action="form.php" method="post" name="ticketform">
+<form action="form.php?y=<?php echo $id;?>" method="post" name="ticketform">
 <div class="col-md-3">
-<div class="panel panel-default">
+<?php echo '<div class="panel panel-default">
 	<div class="panel-heading"><h4>Oyun Bilgileri</h4></div>
     <div class="panel-body">
-		<div class="row row-table">Oyun İsmi</div>
-		<div class="row row-table">Salon Numarası</div>
-		<div class="row row-table">Tarih/Saat </div>
+		<div class="row row-table">'.$isim.'</div>
+		<div class="row row-table">Salon Numarası: 1</div>
+		<div class="row row-table">'.$tarih.' </div>
 		<div class="row row-table"><div class="col-md-6" style="padding-top: 5px;">Koltuk Sayısı </div> 
-		<div class="col-md-6"><input type="text" readonly class="form-control ticketclass pull-right" id="idticket" name ="ticketNums" value="<?php echo $ticketNums; ?>" ></div></div>
+		<div class="col-md-6"><input type="text" readonly class="form-control ticketclass pull-right" id="idticket" name ="ticketNums" value="'.$ticketNums.'" ></div></div>
 		<div class="row row-table">
-			<div class="col-md-8"><input type="text" name="koltuknumarasi" class="seatnames" value="<?php echo $deger ?>" readonly></div>
-			<div class="col-md-4"><input type="text" id= "money" value="<?php echo $ticketNums * 10; ?> ₺ " class="read-cost" name="ucret" readonly></div>
+			<div class="col-md-8"><input type="text" name="koltuknumarasi" class="seatnames" value="'.$deger.'" readonly></div>
+			<div class="col-md-4"><input type="text" id= "money" value="'.$ticketcosting. '₺ " class="read-cost" name="ucret" readonly></div>
 		</div>
 		
 		
   </div>
-</div>
+</div>'; ?>
+
 </div>
 
 

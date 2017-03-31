@@ -6,16 +6,23 @@ include ("connect.php");
 $isim = $_POST["fname"];
 $stars = $_POST["fstars"];
 $fragman = $_POST["fmovieclip"];
-$poster = $_POST["fposter"];
 $tarih = $_POST["tarih"];
-$sira_no = $_POST["fnumber"];
+$seans = $_POST["seans"];
 $ozet = $_POST["fsummary"];
 $id=$_POST["id"];
 
 
-$filmler= $db->prepare("update filmler set gosterim_tarihi=?,sira_no=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=? where id=?");
+ $klasor="../img";
 
-$updateing = $filmler -> execute(array($tarih,$sira_no,$isim,$stars,$ozet,$fragman,$poster,$id));
+   $poster=$_FILES['fposter']['name'];
+
+  
+
+  move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']['name']); 
+
+$filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=? where id=?");
+
+$updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$poster,$id));
 
 if ($updateing) {
 	echo "Başarılı";
