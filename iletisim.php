@@ -25,8 +25,9 @@
 
 	<div class="col-md-6">
 		<div class="row">
-		<h3>İletişim</h3>
+		
 		<ul class="iletisim-control">
+		<h3>İletişim</h3>
 			<li><i class="fa fa-map-marker hvr-grow " aria-hidden="true"> İş Adresi - Lorem ipsum bolor at sumnis konsortil</i> </li>
 			<li><i class="fa fa-phone-square hvr-grow" aria-hidden="true"> Telefon Numarası - 0254 256 25 25</i> </li>
 			<li><i class="fa fa-envelope  hvr-grow" aria-hidden="true"> E-Mail Adresi - biletal@copsmail.com</i> </li>

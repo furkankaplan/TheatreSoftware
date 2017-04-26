@@ -9,6 +9,7 @@ html,body{
     margin-right: 0px;
 }
 
+
 .modal-body iframe{
     height: 50%;
     width: 70%;
@@ -391,5 +392,6 @@ a:hover{
 .iletisim-control {
 
 	list-style-type: none;
+	list-style-position: inside;
 
 }
