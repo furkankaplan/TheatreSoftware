@@ -216,7 +216,7 @@ $id=$dizi["id"];
 
 		?>
 		
-
+ 
 		</div>
 
 		<div class="row seat-row" >
