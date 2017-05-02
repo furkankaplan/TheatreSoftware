@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 08 Nis 2017, 10:47:00
+-- Üretim Zamanı: 02 May 2017, 21:27:53
 -- Sunucu sürümü: 10.1.21-MariaDB
 -- PHP Sürümü: 7.1.1
 
@@ -19,125 +19,6 @@ SET time_zone = "+00:00";
 --
 -- Veritabanı: `deneme`
 --
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `alt_sayfalar`
---
-
-CREATE TABLE `alt_sayfalar` (
-  `id` int(3) NOT NULL,
-  `ust_sayfa_id` int(3) NOT NULL,
-  `durum` varchar(5) COLLATE utf8_turkish_ci NOT NULL DEFAULT 'aktif',
-  `sayfa_basligi` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
-  `kucuk_resim` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
-  `galeri_adi` varchar(150) COLLATE utf8_turkish_ci NOT NULL,
-  `fiyat` int(10) NOT NULL,
-  `urun_turu` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `ekleyen` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `guncelleyen` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `sayfa_aciklama` varchar(200) COLLATE utf8_turkish_ci NOT NULL,
-  `sayfa_icerigi` text COLLATE utf8_turkish_ci NOT NULL,
-  `eklenme_tarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `guncellenme_tarihi` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `urun_kodu` varchar(10) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `alt_sayfalar`
---
-
-INSERT INTO `alt_sayfalar` (`id`, `ust_sayfa_id`, `durum`, `sayfa_basligi`, `kucuk_resim`, `galeri_adi`, `fiyat`, `urun_turu`, `ekleyen`, `guncelleyen`, `sayfa_aciklama`, `sayfa_icerigi`, `eklenme_tarihi`, `guncellenme_tarihi`, `urun_kodu`) VALUES
-(1, 1, 'aktif', 'Beta Maxi Takım', 'beta-maxi.jpg', 'Beta Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 08:29:28', '0000-00-00 00:00:00', '110'),
-(2, 2, 'aktif', 'Ayfer Koltuk Takımı', 'ayfer-koltuk-takimi-kucuk-resim.jpg', 'Ayfer Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 08:32:45', '0000-00-00 00:00:00', '314'),
-(3, 3, 'aktif', 'Adanus Köşe Takımı', 'adanus-kose.jpg', 'Adanus Köşe Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 08:32:45', '0000-00-00 00:00:00', '501'),
-(4, 4, 'aktif', 'Ayfer Kanepe', 'ayfer.jpg', 'Ayfer Kanepe Galeri', 0, '', '', '', '', '', '2017-01-14 08:33:12', '0000-00-00 00:00:00', ''),
-(5, 5, 'aktif', 'Cennet 90x190 Jumbo Yaylı Yatak', 'cennet-90-190-jumbo-yayli-yatak.png', 'Cennet 90x190 Jumbo Yaylı Yatak Galeri', 0, '', '', '', '', '', '2017-01-14 08:33:43', '0000-00-00 00:00:00', '704'),
-(7, 2, 'aktif', 'Begüm Koltuk Takımı', 'begum-koltuk-takimi-kucuk-resim.jpg', 'Begüm Koltuk Takımı Galeri', 0, '3+3+3+1', '', '', '', 'Rahat koltuk takımı', '2017-01-14 09:15:45', '0000-00-00 00:00:00', '307'),
-(8, 2, 'aktif', 'Elfida Koltuk Takımı', 'elfida-koltuk.jpg', 'Elfida Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:16:41', '0000-00-00 00:00:00', '313'),
-(9, 2, 'aktif', 'Elif Koltuk Takımı', 'elif-koltuk.jpg', 'Elif Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:16:41', '0000-00-00 00:00:00', '305'),
-(10, 2, 'aktif', 'Ezgi Koltuk Takımı', 'ezgi-koltuk.jpg', 'Ezgi Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:21:11', '0000-00-00 00:00:00', '311'),
-(11, 2, 'aktif', 'Flora Koltuk Takımı', 'flora-koltuk.jpg', 'Flora Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:21:11', '0000-00-00 00:00:00', '310'),
-(12, 2, 'aktif', 'Hanedan Koltuk Takımı', 'hanedan-koltuk.jpg', 'Hanedan Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:22:36', '0000-00-00 00:00:00', '301'),
-(13, 2, 'aktif', 'Hürrem Koltuk Takımı', 'hurrem-koltuk.jpg', 'Hürrem Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:22:36', '0000-00-00 00:00:00', '304'),
-(14, 2, 'aktif', 'Nergis Koltuk Takımı', 'nergis-koltuk.jpg', 'Nergis Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:23:06', '0000-00-00 00:00:00', '306'),
-(15, 2, 'aktif', 'Nila Koltuk Takımı', 'nila-koltuk.jpg', 'Nila Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:23:06', '0000-00-00 00:00:00', '312'),
-(16, 2, 'aktif', 'Saray Koltuk Takımı', 'saray-koltuk.jpg', 'Saray Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:23:43', '0000-00-00 00:00:00', '302'),
-(17, 2, 'aktif', 'Seran Koltuk Takımı', 'seran-koltuk.jpg', 'Seran Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:23:43', '0000-00-00 00:00:00', '208'),
-(18, 2, 'aktif', 'Sultan Koltuk Takımı', 'sultan-koltuk.jpg', 'Sultan Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:24:12', '0000-00-00 00:00:00', '303'),
-(19, 2, 'aktif', 'Yağmur Koltuk Takımı', 'yagmur-koltuk.jpg', 'Yağmur Koltuk Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:24:12', '0000-00-00 00:00:00', '209'),
-(20, 3, 'aktif', 'Arma Köşe Takımı', 'arma-kose.jpg', 'Arma Köşe Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:50:30', '0000-00-00 00:00:00', '502'),
-(21, 3, 'aktif', 'Mina Köşe Takımı', 'mina-kose.jpg', 'Mina Köşe Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:51:04', '0000-00-00 00:00:00', '503'),
-(22, 3, 'aktif', 'Palermo Köşe Takımı', 'palermo-kose.jpg', 'Palermo Köşe Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:51:18', '0000-00-00 00:00:00', '505'),
-(23, 3, 'aktif', 'Yonca Köşe Takımı', 'yonca-kose.jpg', 'Yonca Köşe Takımı Galeri', 0, '', '', '', '', '', '2017-01-14 09:51:31', '0000-00-00 00:00:00', '504'),
-(24, 1, 'aktif', 'Busella Maxi Takım', 'busella-maxi.jpg', 'Busella Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:55:37', '0000-00-00 00:00:00', '111'),
-(25, 1, 'aktif', 'Carmen Maxi Takım', 'carmen-maxi.jpg', 'Carmen Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:56:03', '0000-00-00 00:00:00', '113'),
-(26, 1, 'aktif', 'Damla Maxi Takım', 'damla-maxi.jpg', 'Damla Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:56:15', '0000-00-00 00:00:00', '106'),
-(27, 1, 'aktif', 'Delux Maxi Takım', 'delux-maxi.jpg', 'Delux Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:56:24', '0000-00-00 00:00:00', '115'),
-(28, 1, 'aktif', 'Efor Maxi Takım', 'efor-maxi.jpg', 'Efor Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:56:34', '0000-00-00 00:00:00', '112'),
-(29, 1, 'aktif', 'Elenza Maxi Takım', 'elenza-maxi.jpg', 'Elenza Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:56:42', '0000-00-00 00:00:00', '103'),
-(30, 1, 'aktif', 'Hilal Maxi Takım', 'hilal-maxi.jpg', 'Hilal Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:56:57', '0000-00-00 00:00:00', '114'),
-(31, 1, 'aktif', 'İnova Maxi Takım', 'inova-maxi.jpg', 'İnova Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:57:08', '0000-00-00 00:00:00', '104'),
-(32, 1, 'aktif', 'Lima Maxi Takım', 'lima-maxi.jpg', 'Lima Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:57:15', '0000-00-00 00:00:00', '102'),
-(33, 1, 'aktif', 'Nehir Maxi Takım', 'nehir-maxi.jpg', 'Nehir Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:57:24', '0000-00-00 00:00:00', '101'),
-(34, 1, 'aktif', 'Nilüfer Maxi Takım', 'nilufer-maxi.jpg', 'Nilüfer Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:57:35', '0000-00-00 00:00:00', '109'),
-(35, 1, 'aktif', 'Secem Maxi Takım', 'secem-maxi.jpg', 'Secem Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:58:00', '0000-00-00 00:00:00', '107'),
-(36, 1, 'aktif', 'Selen Maxi Takım', 'selen-maxi.jpg', 'Selen Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:58:26', '0000-00-00 00:00:00', '105'),
-(37, 1, 'aktif', 'Yasemin Maxi Takım', 'yasemin-maxi.jpg', 'Yasemin Maxi Takım Galeri', 0, '', '', '', '', '', '2017-01-14 09:58:35', '0000-00-00 00:00:00', '108'),
-(38, 4, 'aktif', 'Begüm Kanepe', 'begum.jpg', 'Begüm Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:32:47', '0000-00-00 00:00:00', ''),
-(39, 4, 'aktif', 'Beta Kanepe', 'beta.jpg', 'Beta Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:33:57', '0000-00-00 00:00:00', ''),
-(40, 4, 'aktif', 'Busella Kanepe', 'busella.jpg', 'Busella Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:34:24', '0000-00-00 00:00:00', ''),
-(41, 4, 'aktif', 'Carmen Kanepe', 'carmen.jpg', 'Carmen Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:34:40', '0000-00-00 00:00:00', ''),
-(42, 4, 'aktif', 'Damla Kanepe', 'damla.jpg', 'Damla Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:34:57', '0000-00-00 00:00:00', ''),
-(43, 4, 'aktif', 'Delux Kanepe', 'delux.jpg', 'Delux Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:35:08', '0000-00-00 00:00:00', ''),
-(44, 4, 'aktif', 'Efor Kanepe', 'efor.jpg', 'Efor Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:35:20', '0000-00-00 00:00:00', ''),
-(45, 4, 'aktif', 'Elenza Kanepe', 'elenza.jpg', 'Elenza Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:35:31', '0000-00-00 00:00:00', ''),
-(46, 4, 'aktif', 'Elfida Kanepe', 'elfida.jpg', 'Elfida Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:35:53', '0000-00-00 00:00:00', ''),
-(47, 4, 'aktif', 'Elif Kanepe', 'elif.jpg', 'Elif Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:36:09', '0000-00-00 00:00:00', ''),
-(48, 4, 'aktif', 'Ezgi Kanepe', 'ezgi.jpg', 'Ezgi Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:36:20', '0000-00-00 00:00:00', ''),
-(49, 4, 'aktif', 'Flora Kanepe', 'flora.jpg', 'Flora Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:36:30', '0000-00-00 00:00:00', ''),
-(50, 4, 'aktif', 'Hanedan Kanepe', 'hanedan.jpg', 'Hanedan Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:36:41', '0000-00-00 00:00:00', ''),
-(51, 4, 'aktif', 'Hilal Kanepe', 'hilal.jpg', 'Hilal Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:36:51', '0000-00-00 00:00:00', ''),
-(52, 4, 'aktif', 'Hürrem Kanepe', 'hurrem.jpg', 'Hürrem Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:37:01', '0000-00-00 00:00:00', ''),
-(53, 4, 'aktif', 'İnova Kanepe', 'inova.jpg', 'İnova Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:37:11', '0000-00-00 00:00:00', ''),
-(54, 4, 'aktif', 'Lima Kanepe', 'lima.jpg', 'Lima Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:37:52', '0000-00-00 00:00:00', ''),
-(55, 4, 'aktif', 'Nehir Kanepe', 'nehir.jpg', 'Nehir Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:38:01', '0000-00-00 00:00:00', ''),
-(56, 4, 'aktif', 'Nergis Kanepe', 'nergis.jpg', 'Nergis Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:38:10', '0000-00-00 00:00:00', ''),
-(57, 4, 'aktif', 'Nila Kanepe', 'nila.jpg', 'Nila Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:38:27', '0000-00-00 00:00:00', ''),
-(58, 4, 'aktif', 'Nilüfer Kanepe', 'nilufer.jpg', 'Nilüfer Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:38:38', '0000-00-00 00:00:00', ''),
-(59, 4, 'aktif', 'Palermo Kanepe', 'palermo.jpg', 'Palermo Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:38:51', '0000-00-00 00:00:00', ''),
-(60, 4, 'aktif', 'Saray Kanepe', 'saray.jpg', 'Saray Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:39:01', '0000-00-00 00:00:00', ''),
-(61, 4, 'aktif', 'Secem Kanepe', 'secem.jpg', 'Secem Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:39:10', '0000-00-00 00:00:00', ''),
-(62, 4, 'aktif', 'Seran Kanepe', 'seran.jpg', 'Seran Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:39:18', '0000-00-00 00:00:00', ''),
-(63, 4, 'aktif', 'Sultan Kanepe', 'sultan.jpg', 'Sultan Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:39:32', '0000-00-00 00:00:00', ''),
-(64, 4, 'aktif', 'Yağmur Kanepe', 'yagmur.jpg', 'Yağmur Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:39:42', '0000-00-00 00:00:00', ''),
-(65, 4, 'aktif', 'Yasemin Kanepe', 'yasemin.jpg', 'Yasemin Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:40:19', '0000-00-00 00:00:00', ''),
-(66, 4, 'aktif', 'Yonca Kanepe', 'yonca.jpg', 'Yonca Kanepe Galeri', 0, '', '', '', '', '', '2017-01-15 18:40:28', '0000-00-00 00:00:00', ''),
-(67, 5, 'aktif', 'Gamze 90x190 Jumbo Yaylı Yatak', 'gamze-90-190-jumbo-yayli-yatak.png', 'Gamze 90x190 Jumbo Yaylı Yatak Galeri', 0, '', '', '', '', '', '2017-01-15 18:43:12', '0000-00-00 00:00:00', '702'),
-(68, 5, 'aktif', 'Cennet 150x200 Jumbo Yaylı Yatak', 'cennet-150x200-jumbo-yayli-yatak.png', 'Cennet 150x200 Jumbo Yaylı Yatak Galeri', 0, '', '', '', '', '', '2017-01-15 18:44:14', '0000-00-00 00:00:00', '703'),
-(69, 5, 'aktif', 'Gamze 150x200 Jumbo Yaylı Yatak', 'gamze-150x200-jumbo-yayli-yatak.png', 'Gamze 150x200 Jumbo Yaylı Yatak Galeri', 0, '', '', '', '', '', '2017-01-15 18:44:25', '0000-00-00 00:00:00', '701'),
-(76, 6, 'aktif', 'Vizyon 90x190 Baza', 'vizyon-90-190-baza.png', 'Vizyon 90x190 Baza Galeri', 0, '', '', '', '', '', '2017-01-16 09:58:16', '0000-00-00 00:00:00', '602'),
-(72, 6, 'aktif', 'Alara 150x200 Baza', 'alara-150-200-baza.png', 'Alara 150x200 Baza Galeri', 0, '', '', '', '', '', '2017-01-15 18:45:47', '0000-00-00 00:00:00', '403'),
-(77, 6, 'aktif', 'Vizyon 150x200 Baza', 'vizyon-150-200-baza.png', 'Vizyon 150x200 Baza Galeri', 0, '', '', '', '', '', '2017-01-16 09:58:16', '0000-00-00 00:00:00', '402'),
-(78, 6, 'aktif', 'Yakut 150x200 Baza', 'yakut-150-200-baza.png', 'Yakut 150x200 Baza Galeri', 0, '', '', '', '', '', '2017-01-16 09:58:16', '0000-00-00 00:00:00', '401'),
-(81, 6, 'aktif', '	\r\nYakut 90x190 Baza', 'yakut-90-190-baza.png', 'Yakut 90x190 Baza Galeri', 0, '', '', '', '', '', '2017-01-17 10:21:30', '0000-00-00 00:00:00', ''),
-(80, 6, 'aktif', 'Alara 90x190 Baza', 'alara-90-190-baza.png', 'Alara 90x190 Baza Galeri', 0, '', '', '', '', '', '2017-01-17 10:18:48', '0000-00-00 00:00:00', '');
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `degerlerimiz`
---
-
-CREATE TABLE `degerlerimiz` (
-  `id` int(2) NOT NULL,
-  `sira_no` int(2) NOT NULL,
-  `deger1` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `deger2` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `deger3` varchar(30) COLLATE utf8_turkish_ci NOT NULL,
-  `deger4` varchar(30) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -263,75 +144,6 @@ INSERT INTO `galeriler` (`id`, `sira_no`, `galeri_adi`, `ekleyen`, `eklenme_tari
 (74, 333, 'Gamze 90x190 Jumbo Yaylı Yatak Galeri', '', '2017-01-17 09:48:46'),
 (75, 333, 'Cennet 90x190 Jumbo Yaylı Yatak Galeri', '', '2017-01-17 09:49:15'),
 (76, 333, 'Cennet 150x200 Jumbo Yaylı Yatak Galeri', '', '2017-01-17 09:49:15');
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `hakkimizda`
---
-
-CREATE TABLE `hakkimizda` (
-  `hakkimizda_yazisi` varchar(3000) COLLATE utf8_turkish_ci NOT NULL,
-  `hakkimizda_resmi` varchar(100) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `harita_src`
---
-
-CREATE TABLE `harita_src` (
-  `id` int(11) NOT NULL,
-  `src_kodu` text COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `iletisim_bilgileri`
---
-
-CREATE TABLE `iletisim_bilgileri` (
-  `id` int(1) NOT NULL,
-  `adres` varchar(700) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
-  `telefon` varchar(80) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
-  `fax` varchar(30) NOT NULL,
-  `mail` varchar(80) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
-  `harita_src` varchar(800) NOT NULL,
-  `guncellenme_tarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
---
--- Tablo döküm verisi `iletisim_bilgileri`
---
-
-INSERT INTO `iletisim_bilgileri` (`id`, `adres`, `telefon`, `fax`, `mail`, `harita_src`, `guncellenme_tarihi`) VALUES
-(1, 'Merkez : Kozan yolu Atatürk cad. No : 181  (Buruk Mezarligi civari) Saricam / ADANA  ', '0322 341 41 56    ', '0322 341 28 28', 'info@eraykanepe.com', 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14716.960171059734!2d35.393862635836754!3d37.045167092028215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1528923a46959f69%3A0xf5f5862430683eb0!2sEray+Mobilya!5e0!3m2!1str!2str!4v1484650560985', '2017-02-06 07:50:34');
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `iletisim_formu`
---
-
-CREATE TABLE `iletisim_formu` (
-  `id` int(11) NOT NULL,
-  `ad_soyad` varchar(60) COLLATE utf8_turkish_ci NOT NULL,
-  `email` varchar(40) COLLATE utf8_turkish_ci NOT NULL,
-  `telefon` varchar(11) COLLATE utf8_turkish_ci NOT NULL,
-  `konu` varchar(250) COLLATE utf8_turkish_ci NOT NULL,
-  `mesaj` text COLLATE utf8_turkish_ci NOT NULL,
-  `tarih` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
-
---
--- Tablo döküm verisi `iletisim_formu`
---
-
-INSERT INTO `iletisim_formu` (`id`, `ad_soyad`, `email`, `telefon`, `konu`, `mesaj`, `tarih`) VALUES
-(1, 'yasemin tavşan', 'yasmintvsn@gmail.com', 'Belirtilmed', 'deneme konu', 'deneme mesaj', '2017-01-17 14:05:07'),
-(2, 'WDNtcrDm', '', '42601542736', 'sdBcGwsYyA', 'Xk6QYe http://www.FyLitCl7Pf7ojQdDUOLQOuaxTXbj5iNG.com', '2017-02-19 19:08:19');
 
 -- --------------------------------------------------------
 
@@ -471,17 +283,6 @@ CREATE TABLE `menu` (
   `ekleyen` varchar(60) CHARACTER SET utf8 COLLATE utf8_turkish_ci NOT NULL,
   `eklenme_tarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Tablo için tablo yapısı `popup`
---
-
-CREATE TABLE `popup` (
-  `id` int(11) NOT NULL,
-  `popup_resmi` varchar(100) COLLATE utf8_turkish_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 -- --------------------------------------------------------
 
@@ -751,18 +552,6 @@ INSERT INTO `sosyalmedya` (`id`, `facebook`, `googleplus`, `instagram`) VALUES
 --
 
 --
--- Tablo için indeksler `alt_sayfalar`
---
-ALTER TABLE `alt_sayfalar`
-  ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `degerlerimiz`
---
-ALTER TABLE `degerlerimiz`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Tablo için indeksler `filmler`
 --
 ALTER TABLE `filmler`
@@ -772,24 +561,6 @@ ALTER TABLE `filmler`
 -- Tablo için indeksler `galeriler`
 --
 ALTER TABLE `galeriler`
-  ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `harita_src`
---
-ALTER TABLE `harita_src`
-  ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `iletisim_bilgileri`
---
-ALTER TABLE `iletisim_bilgileri`
-  ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `iletisim_formu`
---
-ALTER TABLE `iletisim_formu`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -808,12 +579,6 @@ ALTER TABLE `kullanicilar`
 -- Tablo için indeksler `menu`
 --
 ALTER TABLE `menu`
-  ADD PRIMARY KEY (`id`);
-
---
--- Tablo için indeksler `popup`
---
-ALTER TABLE `popup`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -853,16 +618,6 @@ ALTER TABLE `sosyalmedya`
 --
 
 --
--- Tablo için AUTO_INCREMENT değeri `alt_sayfalar`
---
-ALTER TABLE `alt_sayfalar`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
---
--- Tablo için AUTO_INCREMENT değeri `degerlerimiz`
---
-ALTER TABLE `degerlerimiz`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT;
---
 -- Tablo için AUTO_INCREMENT değeri `filmler`
 --
 ALTER TABLE `filmler`
@@ -872,21 +627,6 @@ ALTER TABLE `filmler`
 --
 ALTER TABLE `galeriler`
   MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=78;
---
--- Tablo için AUTO_INCREMENT değeri `harita_src`
---
-ALTER TABLE `harita_src`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- Tablo için AUTO_INCREMENT değeri `iletisim_bilgileri`
---
-ALTER TABLE `iletisim_bilgileri`
-  MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
---
--- Tablo için AUTO_INCREMENT değeri `iletisim_formu`
---
-ALTER TABLE `iletisim_formu`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Tablo için AUTO_INCREMENT değeri `koltuklar`
 --
@@ -902,11 +642,6 @@ ALTER TABLE `kullanicilar`
 --
 ALTER TABLE `menu`
   MODIFY `id` int(3) NOT NULL AUTO_INCREMENT;
---
--- Tablo için AUTO_INCREMENT değeri `popup`
---
-ALTER TABLE `popup`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- Tablo için AUTO_INCREMENT değeri `resimler`
 --
