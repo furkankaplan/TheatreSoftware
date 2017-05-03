@@ -1,5 +1,6 @@
 	<?php 
 include ("connect.php");
+include ("../Classes.php");
 
 $slidename = $_POST["slidename"];
 $slidelink = $_POST["slidelink"];
@@ -15,11 +16,8 @@ move_uploaded_file($_FILES['resim']['tmp_name'],$klasor."/".$_FILES['resim']['na
 else{
 	echo "Resim bulunamadı.";
 }
-
-$slider_film = $db->prepare("insert into slider set slayt_adi=?, slide_resim=?, slide_yazi=?, slide_linki=? ");
-
-$adding = $slider_film -> execute(array($slidename,$isim,$slidewriting,$slidelink));
-
+$dizi = new Slider();
+$adding = $dizi -> insertSlider($slidename,$isim,$slidewriting,$slidelink);
 if ($adding) {
 	echo "Başarılı";?>
 	<script>

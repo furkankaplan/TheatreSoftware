@@ -67,7 +67,7 @@
 	<style>
 
 </style>
-	</style>
+	</head>
 
 </head>
 

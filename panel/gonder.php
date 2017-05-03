@@ -1,5 +1,6 @@
 <?php 
 include ("connect.php");
+include("../Classes.php");
 
 $isim = $_POST["fname"];
 $stars = $_POST["fstars"];

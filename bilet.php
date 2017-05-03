@@ -1,3 +1,4 @@
+<?php include("Classes.php");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -42,18 +43,18 @@ include ("connect.php");
 
 $id=@$_GET["b"];
 
-$filmler = $db ->prepare("select * from filmler where id=? ");
-$filmler -> execute(array($id));
-$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
 
-$isim = $dizi["film_adi"];
-$oyuncular = $dizi["oyuncular"];
-$ozet = $dizi["ozet"];
-$seans = $dizi["seans"];
-$poster = $dizi["afis"];
-$fragman = $dizi["fragman"];
-$tarih = $dizi["gosterim_tarihi"];
-$id=$dizi["id"];
+$dizi = new Films();
+$result = $dizi -> getFilmsByID($id); // dönen sql dizisi.
+$isim = $dizi -> getFilmAdi($result);
+$oyuncular = $dizi -> getOyuncular($result);
+
+$ozet = $dizi -> getOzet($result);
+$seans = $dizi -> getSeans($result);
+$poster = $dizi -> getAfis($result);
+$fragman = $dizi -> getFragman($result);
+$tarih = $dizi -> getGosterimTarihi($result);
+$id= $dizi -> getID($result)
 
  ?>
 

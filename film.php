@@ -1,3 +1,4 @@
+<?php include("Classes.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,33 +34,26 @@ include ("navbar.php");
 
 
 
-<?php include("navbar.php"); 
+<?php include("navbar.php");
 
 $id=$_GET["k"];
+$dizi = new Films();
+$result = $dizi -> getFilmsByID($id);
+$id = $dizi -> getID($result);
+$film_adi = $dizi -> getFilmAdi($result);
+$seans = $dizi -> getSeans($result);
+$oyuncular = $dizi -> getOyuncular($result);
+$ozet = $dizi -> getOzet($result);
+$gosterim_tarihi = $dizi -> getGosterimTarihi($result);
+$afis = $dizi -> getAfis($result);
+$fragman = $dizi -> getFragman($result);
 
-
-                     
-                     $filmler = $db ->prepare("select * from filmler where id=?");
-                     $filmler -> execute(array($id));
-                     $dizi = $filmler -> fetchALL(PDO::FETCH_ASSOC);
-
-                     foreach ($dizi as $elements) {
-                        $id = $elements["id"];
-                        $film_adi= $elements["film_adi"];
-                        $seans = $elements["seans"];
-                        $oyuncular =$elements["oyuncular"];
-                        $ozet =$elements["ozet"];
-                        $gosterim_tarihi = $elements["gosterim_tarihi"];
-                        $afis = $elements["afis"];
-                        $fragman = $elements ["fragman"];
-                        
-
-                        echo '   <div class="row">
+echo '<div class="row">
    
-       <div class="col-md-6"><div class="embed-responsive embed-responsive-4by3 ">
+    <div class="col-md-6"><div class="embed-responsive embed-responsive-4by3 ">
           <iframe class="embed-responsive-item" src="'.$fragman.'"></iframe>
-        </div>
-        </div>
+     </div>
+    </div>
         <h4 class="text-center" value="'.$film_adi.'"></h4>
     
 <div class="col-md-6">
@@ -99,7 +93,7 @@ $id=$_GET["k"];
 
 </div>';
 
-}?>
+?>
 
 <div class="row" style="margin-top: 50px;">
 <?php include ("footer.php") ?>

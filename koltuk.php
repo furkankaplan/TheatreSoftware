@@ -1,3 +1,4 @@
+<?php include("Classes.php");?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,18 +26,19 @@ include ("connect.php");
 
 $id=$_GET["x"];
 
-$filmler = $db ->prepare("select * from filmler where id=? ");
-$filmler -> execute(array($id));
-$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
 
-$isim = $dizi["film_adi"];
-$oyuncular = $dizi["oyuncular"];
-$ozet = $dizi["ozet"];
-$seans = $dizi["seans"];
-$poster = $dizi["afis"];
-$fragman = $dizi["fragman"];
-$tarih = $dizi["gosterim_tarihi"];
-$id=$dizi["id"];
+
+$dizi = new Films();
+$result = $dizi -> getFilmsByID($id);
+
+$isim = $dizi -> getFilmAdi($result);
+$oyuncular = $dizi -> getOyuncular($result);
+$ozet = $dizi -> getOyuncular($result);
+$seans = $dizi -> getSeans($result);
+$poster = $dizi -> getAfis($result);
+$fragman = $dizi -> getFragman($result);
+$tarih = $dizi -> getGosterimTarihi($result);
+$id= $dizi -> getID($result);
 
  ?>
 
@@ -60,97 +62,54 @@ $id=$dizi["id"];
   		<!-- Table -->
   		<?php
 
-  		echo ' <table class="table">
-   			 <tr>
-   			 	<td>Oyun İsmi</td>
-   			 	<td>'.$isim.'</td>
-   			 </tr>
-   			 <tr>
-   			 	<td>Seans</td>
-   			 	<td>'.$seans.'</td>
-   			 </tr>
-   			
-  		</table>';
-
+  		echo '<div class="col-md-6 text-right" style="font-weight: bold">Film:</div>';
+  		echo '<div class="col-md-6 text-left">'.$isim.'</div>';
+        echo '<div class="col-md-6 text-right" style="font-weight: bold">Seans:</div>';
+  		echo '<div class="col-md-6 text-left">'.$seans.'</div>';
   		?>
   		
 		
 		<div class="row seat-row" >
 		
-		<?php 
-		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%A%'");
-		$a -> execute(array());
+		<?php
+		$adizi= new Seats();
+		$result = $adizi -> getSeatsByLike("A");
 
-		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+		foreach ($result as $eleman) {
 
-		foreach ($adizi as $eleman) {
-			$koltuk_adi=$eleman["koltuk_adi"];
-			$durum=$eleman["durum"];
-			
-			if($durum=='0'){
-				$hazir = "disabled";
-			}
-			else{
-				$hazir=" ";
-			}
-
-			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
+            echo $adizi -> writeSeats($eleman);
 			# code...
 		}
-
 
 		?>
 		</div>
 
 		<div class="row seat-row" >
 
-		<?php 
-		$b= $db->prepare ("select * from koltuklar where koltuk_adi like '%B%'");
-		$b -> execute(array());
+		<?php
+        $adizi= new Seats();
+        $result = $adizi -> getSeatsByLike("B");
 
-		$bdizi=$b->fetchALL(PDO::FETCH_ASSOC);
+        foreach ($result as $eleman) {
 
-		foreach ($bdizi as $eleman) {
-			$koltuk_adi=$eleman["koltuk_adi"];
-			$durum=$eleman["durum"];
-			
-			if($durum=='0'){
-				$hazir = "disabled";
-			}
-			else{
-				$hazir=" ";
-			}
-				echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
-			# code...
-		}
-
+            echo $adizi -> writeSeats($eleman);
+        }
 
 		?>
 		
 		</div>
 		
 
-		<div class="row seat-row" ><?php 
-		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%C%'");
-		$a -> execute(array());
+		<div class="row seat-row" >
 
-		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+        <?php
+            $adizi= new Seats();
+            $result = $adizi -> getSeatsByLike("C");
 
-		foreach ($adizi as $eleman) {
-			$koltuk_adi=$eleman["koltuk_adi"];
-			$durum=$eleman["durum"];
-			
-			if($durum=='0'){
-				$hazir = "disabled";
-			}
-			else{
-				$hazir=" ";
-			}	
-			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
-			# code...
-		}
+            foreach ($result as $eleman) {
 
-
+                echo $adizi -> writeSeats($eleman);
+            }
 		?>
 
 		</div>
@@ -165,83 +124,44 @@ $id=$dizi["id"];
 
 
 		<div class="row seat-row" >
-		<?php 
-		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%D%'");
-		$a -> execute(array());
+            <?php
+            $adizi= new Seats();
+            $result = $adizi -> getSeatsByLike("D");
 
-		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+            foreach ($result as $eleman) {
 
-		foreach ($adizi as $eleman) {
-			$koltuk_adi=$eleman["koltuk_adi"];
-			$durum=$eleman["durum"];
-			
-			if($durum=='0'){
-				$hazir = "disabled";
-			}
-			else{
-				$hazir=" ";
-			}
-			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
-			# code...
-		}
-
-
-		?>
+                echo $adizi -> writeSeats($eleman);
+            }
+            ?>
 
 		</div>
 
 
 
 		<div class="row seat-row" >
-		<?php 
-		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%E%'");
-		$a -> execute(array());
+            <?php
+            $adizi= new Seats();
+            $result = $adizi -> getSeatsByLike("E");
 
-		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+            foreach ($result as $eleman) {
 
-		foreach ($adizi as $eleman) {
-			$koltuk_adi=$eleman["koltuk_adi"];
-			$durum=$eleman["durum"];
-			
-			if($durum=='0'){
-				$hazir = "disabled";
-			}
-			else{
-				$hazir=" ";
-			}
-				echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
-			# code...
-		}
-
-
-		?>
+                echo $adizi -> writeSeats($eleman);
+            }
+            ?>
 		
  
 		</div>
 
 		<div class="row seat-row" >
-		<?php 
-		$a= $db->prepare ("select * from koltuklar where koltuk_adi like '%F%'");
-		$a -> execute(array());
+            <?php
+            $adizi= new Seats();
+            $result = $adizi -> getSeatsByLike("F");
 
-		$adizi=$a->fetchALL(PDO::FETCH_ASSOC);
+            foreach ($result as $eleman) {
 
-		foreach ($adizi as $eleman) {
-			$koltuk_adi=$eleman["koltuk_adi"];
-			$durum=$eleman["durum"];
-			
-			if($durum=='0'){
-				$hazir = "disabled";
-			}
-			else{
-				$hazir=" ";
-			}
-			echo '<button class="btn btn-success"  '.$hazir.' value="'.$koltuk_adi.'">' .$koltuk_adi. '</button>';
-			# code...
-		}
-
-
-		?>
+                echo $adizi -> writeSeats($eleman);
+            }
+            ?>
 
 
 		</div>

@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../Classes.php");
 ?><!DOCTYPE html>
 <html>
 <head>
@@ -59,7 +60,7 @@ session_start();
 	<style>
 
 </style>
-	</style>
+	</head>
 
 </head>
 
@@ -73,20 +74,14 @@ include("connect.php");
 	 
    $email=$_POST["email"];
    $sifre=$_POST["sifre"];
-  
-   $sorgu=$db->prepare("select * from kullanicilar where uye_eposta=? and uye_sifre=?");
-   $sorgu->execute(array($email,$sifre));
-   $dizi=$sorgu->fetch(PDO::FETCH_ASSOC);
-   $sayi=$sorgu->rowCount();
-   
-   if(!$sayi) //üye giriş bilgileri yanlışsa
-    { 
 
-    	echo "Kullanıcı adı hatalı";
-     ?>
-	 
-	 
-	 
+   $dizi = new Kullanicilar();
+   $result = $dizi -> login($email,$sifre);
+   
+   if($result === "ERROR"){ //üye giriş bilgileri yanlışsa
+        echo "Kullanıcı adı hatalı";
+?>
+
     <div class=" container " > 
 	
 	<div class="row"> 
@@ -144,22 +139,22 @@ include("connect.php");
 	}
 	
 	
-else{ //Bilgiler doğruysa panelin ana sayfasına yönlendir
+    else{ //Bilgiler doğruysa panelin ana sayfasına yönlendir
 	
-	$_SESSION["uye_adi"]=$dizi["uye_adi"];
-	$_SESSION["uye_statu"]=$dizi["uye_statu"];
-	$_SESSION["uye_soyadi"]=$dizi["uye_soyadi"];
-	$_SESSION["uye_sifre"]=$dizi["uye_sifre"];
-	$_SESSION["uye_eposta"]=$dizi["uye_eposta"];
-	$_SESSION["uye_id"]=$dizi["id"];
-	
-		?>
-		
-		<script type="text/javascript"> 
-		
-		window.location.href='index.php';
-		</script>
-		<?php
+        $_SESSION["uye_adi"]= $dizi -> getUyeAdi($result);
+        $_SESSION["uye_statu"]= $dizi -> getUyeStatu($result);
+        $_SESSION["uye_soyadi"]=  $dizi -> getUyeSoyadi($result);
+        $_SESSION["uye_sifre"]=  $dizi -> getUyeSifre($result);
+        $_SESSION["uye_eposta"]= $dizi -> getUyeEposta($result);
+        $_SESSION["uye_id"]= $dizi -> getUyeID($result);
+
+            ?>
+
+            <script type="text/javascript">
+
+            window.location.href='index.php';
+            </script>
+            <?php
 	}
 	?>
 

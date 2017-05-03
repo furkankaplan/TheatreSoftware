@@ -1,3 +1,4 @@
+<?php include("Classes.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,14 +39,8 @@ include ("navbar.php");
 
 $x=@$_GET["x"];
 
-switch ($x) {
-	
-
-	default:
-	include ("film-main.php");
-	break;
-	
-}?>
+include ("film-main.php");
+?>
 
 
 <?php

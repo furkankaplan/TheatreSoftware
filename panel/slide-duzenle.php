@@ -1,18 +1,17 @@
 <?php 
 
 include("connect.php");
-
+include("../Classes.php");
 $id=$_GET["id"];
 
-$slider_film = $db ->prepare("select * from slider_film where id=? ");
-$slider_film -> execute(array($id));
-$elements = $slider_film -> fetch(PDO::FETCH_ASSOC);
+$dizi = new Slider();
+$result = $dizi -> getSlider($id);
 
-$slidename = $elements["slider_adi"];
-$slidelink = $elements["slide_link"];
-$slidephoto = $elements["slider_resmi"];
-$slidewriting = $elements["slider_yazi"];
-$id = $elements["id"];
+$slidename = $dizi -> getAdi($result);
+$slidelink = $dizi -> getLink($result);
+$slidephoto = $dizi -> getResmi($result);
+$slidewriting = $dizi -> getYazi($result);
+$id = $dizi -> getID($result);
 
 
  ?>

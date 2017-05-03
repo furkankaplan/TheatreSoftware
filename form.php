@@ -1,3 +1,4 @@
+<?php include("Classes.php");?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,18 +31,17 @@ include ("connect.php");
 
 $id=$_GET["y"];
 
-$filmler = $db ->prepare("select * from filmler where id=? ");
-$filmler -> execute(array($id));
-$dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
+$dizi = new Films();
 
-$fisim = $dizi["film_adi"];
-$oyuncular = $dizi["oyuncular"];
-$ozet = $dizi["ozet"];
-$seans = $dizi["seans"];
-$poster = $dizi["afis"];
-$fragman = $dizi["fragman"];
-$tarih = $dizi["gosterim_tarihi"];
-$id=$dizi["id"];
+$result = $dizi -> getFilmsByID($id);
+$film = $dizi -> getFilmAdi($result);
+$oyuncular = $dizi -> getOyuncular($result);
+$ozet = $dizi -> getOzet($result);
+$seans = $dizi -> getSeans($result);
+$poster = $dizi -> getAfis($result);
+$fragman = $dizi -> getFragman($result);
+$tarih = $dizi -> getGosterimTarihi($result);
+$id= $dizi -> getID($result);
 
  ?>
 
@@ -99,7 +99,7 @@ foreach($biletler as $eleman){
             <table class="table table-bordered table-striped">
              <tr>
               <td  colspan="2" width="40" style="text-align:left;">Film İsmi:</td>
-              <td  colspan="4" style="text-align:left;">'.$fisim.'</td>
+              <td  colspan="4" style="text-align:left;">'.$film.'</td>
              </tr>
              <tr>
              <td colspan="2">Bilet Bilgileri:</td>

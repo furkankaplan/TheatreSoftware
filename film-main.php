@@ -17,16 +17,15 @@ include ("slider.php");
 	
 	<?php
 
-		$filmler = $db ->prepare("select * from filmler where gosterim_turu='0'");
-		$filmler -> execute(array());
-		$dizi = $filmler -> fetchALL(PDO::FETCH_ASSOC);
+    $dizi = new Films();
+    $resultArray = $dizi -> getFilmsByGosterimTuru(0);
 
-		foreach ($dizi as $elements) {
-		   $id = $elements["id"];
-		   $film_adi= $elements["film_adi"];
-		   $seans = $elements["seans"];
-		   $gosterim_tarihi = $elements["gosterim_tarihi"];
-		   $afis = $elements["afis"];
+    foreach ($resultArray as $elements) {
+		   $id = $dizi -> getID($elements);
+		   $film_adi =  $dizi -> getFilmAdi($elements);
+           $seans = $dizi -> getSeans($elements);
+		   $gosterim_tarihi = $dizi -> getGosterimTarihi($elements);
+		   $afis = $dizi -> getAfis($elements);
 
 
 		   echo '<div class="col-md-4">
@@ -57,19 +56,18 @@ include ("slider.php");
 	
 
 	<?php
-		$filmler = $db ->prepare("select * from filmler where gosterim_turu='1'");
-		$filmler -> execute(array());
-		$dizi = $filmler -> fetchALL(PDO::FETCH_ASSOC);
+    $dizi = new Films();
+    $resultArray = $dizi -> getFilmsByGosterimTuru(1);
 
-		foreach ($dizi as $elements) {
-		   $id = $elements["id"];
-		   $film_adi= $elements["film_adi"];
-		   $seans = $elements["seans"];
-		   $gosterim_tarihi = $elements["gosterim_tarihi"];
-		   $afis = $elements["afis"];
+    foreach ($resultArray as $elements) {
+        $id = $dizi -> getID($elements);
+        $film_adi =  $dizi -> getFilmAdi($elements);
+        $seans = $dizi -> getSeans($elements);
+        $gosterim_tarihi = $dizi -> getGosterimTarihi($elements);
+        $afis = $dizi -> getAfis($elements);
 
 
-		   echo '<div class="col-md-4">
+        echo '<div class="col-md-4">
 	<div class="panel panel-default">
 	    <a href="film.php?k='.$id.'"><div class="panel-body">
 	    		<img src="img/'.$afis.'" class="img-responsive" alt=""/>
@@ -77,11 +75,14 @@ include ("slider.php");
 	     </div></a>
 	    </div></div>  
 	    ';
-}
+    }
 
 
 
-	?>
+
+
+
+    ?>
 
 
 </div>

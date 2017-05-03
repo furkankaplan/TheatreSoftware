@@ -1,15 +1,14 @@
-<?php include ("connect.php");
+<?php
+include ("connect.php");
+include ("../Classes.php");
 
 $instagram = $_POST["instagram"];
 $googleplus = $_POST["plus"];
 $facebook = $_POST["face"];
 
 
-
-
-$sosyalmedya= $db->prepare("update sosyalmedya set facebook=?,googleplus=?,instagram=?");
-
-$updateing = $sosyalmedya -> execute(array($facebook,$googleplus,$instagram));
+$obj = new Sosyalmedya();
+$updateing = $obj -> updateSosyalmedya($facebook,$googleplus,$instagram);
 
 if ($updateing) {
 	echo "Başarılı";?>
