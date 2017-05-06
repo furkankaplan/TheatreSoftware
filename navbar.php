@@ -12,18 +12,10 @@
 <div class="collapse navbar-collapse">
 	
 	<ul class="nav navbar-nav navbar-right">
-        <li><a href="bilet.php">Tiyatro</a></li>
-        <li><a href="koltuk.php">Sinema</a></li>
-        <li><a href="film-ekle.php">Müzik</a></li>
+        <li><a href="theatre.php">Tiyatro</a></li>
+        <li><a href="movie.php">Sinema</a></li>
         
-		<li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Diğer Etkinlikler <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Spor</a></li>           
-            <li><a href="#">Eğlence</a></li>           
-            
-          </ul>
-        </li>
+		
 		
 		<form class="navbar-form navbar-left">
         <div class="form-group">

@@ -395,3 +395,16 @@ a:hover{
 	list-style-position: inside;
 
 }
+
+.movie{
+	background: white;
+	border:2px solid whitesmoke;
+	padding: 10px;
+
+}
+
+.img-movie{ height:175px; width:125px; }
+
+.movie h3{ padding-top:0px; margin-top: 0px;}
+
+.cont-movie{margin-bottom:5px;}

@@ -62,11 +62,17 @@ $id= $dizi -> getID($result);
   		<!-- Table -->
   		<?php
 
-  		echo '<div class="col-md-6 text-right" style="font-weight: bold">Film:</div>';
-  		echo '<div class="col-md-6 text-left">'.$isim.'</div>';
-        echo '<div class="col-md-6 text-right" style="font-weight: bold">Seans:</div>';
-  		echo '<div class="col-md-6 text-left">'.$seans.'</div>';
-  		?>
+  			echo ' <table class="table">
+   			 <tr>
+   			 	<td class="text-right" style="width:50%;">Oyun İsmi</td>
+   			 	<td class="text-left">'.$isim.'</td>
+   			 </tr>
+   			 <tr>
+   			 	<td class="text-right">Seans</td>
+   			 	<td class="text-left">'.$seans.'</td>
+   			 </tr>
+   			
+  		</table>';  		?>
   		
 		
 		<div class="row seat-row" >
@@ -176,7 +182,7 @@ $id= $dizi -> getID($result);
 <div class="row payment-row">
 	  <form action="bilet.php?b=<?php echo $id;?>" method="post">
  		<div class="col-md-7"><input type="text" class="form-control pull-right" id="secimler" name="ticket" value=" " readonly></div> 
-   	<div class="col-md-3"><input type="submit" disabled="true" value=" BİLETİ ONAYLA" id="btn-payment"  class="btn btn-danger btn-payment" onclick="seatTaken()"></button></div>
+   	<div class="col-md-3"><input type="submit" disabled="true" value=" BİLETİ ONAYLA" id="btn-payment"  class="btn btn-danger btn-payment" onclick="seatTaken()"></div>
    	<div class="col-md-2"><input type="reset" onclick="sifirla()"  value="Sıfırla" class="btn btn-warning btn-reset"></input></div>
    	<input type="hidden" value="" name="ticketNum" id="ticketNum">
    	</form>
