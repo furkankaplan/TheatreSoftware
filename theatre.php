@@ -1,4 +1,5 @@
 <?php include("Classes.php");?>
+<?php include "connect.php";?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,150 +27,56 @@
     <div class="container" style="margin-left: auto; margin-top: 59px;">
 
 
+        <?php
+        $obj = new Tiyatrolar();
+        $dizi = $obj -> getTiyatrolarByGosterimTuru(0); // 0: vizyondakiler, 1: gelecek filmler
+        foreach ($dizi as $elements){
+            $poster = $obj -> getAfis($elements);
+            $tiyatro_adi = $obj -> getTiyatroAdi($elements);
+            $yonetmen = $obj -> getYonetmen($elements);
+            $gosterim_tarihi = $obj -> getGosterimTarihi($elements);
+            $oyuncular = $obj -> getOyuncular($elements);
+            $fid = $obj -> getID($elements);
+
+            echo'
+        
+        
         <div class="col-md-8 col-md-offset-2 cont-movie" >
             <div class="row movie">
                 <div class="col-md-4">
-                    <img src="img/yesilyol-dikey.jpg" alt="" class="img-responsive img-movie">
+                    <img src="img/'.$poster.'" alt="" class="img-responsive img-movie">
                 </div>
                 <div class="col-md-6 col-md-offset-2">
-                <h3>Esaretin Bedeli</h3>
+                <h3>'.$tiyatro_adi.'</h3>
 
                 <br>
-                yönetmen:loremcik loremoğlu
-
-                <br>
-
-                yıl: 199868
+                Yönetmen: '.$yonetmen.'
 
                 <br>
 
-                oyuncular: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quae velit temporibus non tenetur
+                Gösterim tarihi:'.$gosterim_tarihi.'
+
+                <br>
+
+                Oyuncular: '.$oyuncular.'
 
 
                 <br>
 
 
-                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right">
+                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right" onclick="goToFilm('.$fid.')">
                 </div>
             </div>
             
         </div>
+        
+        
+        ';
+        }
 
-        <div class="col-md-8 col-md-offset-2 cont-movie">
-            <div class="row movie">
-                <div class="col-md-4">
-                    <img src="img/yesilyol-dikey.jpg" alt="" class="img-responsive img-movie">
-                </div>
-                <div class="col-md-6 col-md-offset-2">
-                <h3>Esaretin Bedeli</h3>
+        ?>
 
-                <br>
-                yönetmen:loremcik loremoğlu
-
-                <br>
-
-                yıl: 199868
-
-                <br>
-
-                oyuncular: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quae velit temporibus non tenetur
-
-
-                <br>
-
-
-                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right">
-                </div>
-            </div>
-            
-        </div>
-
-        <div class="col-md-8 col-md-offset-2 cont-movie">
-            <div class="row movie">
-                <div class="col-md-4">
-                    <img src="img/yesilyol-dikey.jpg" alt="" class="img-responsive img-movie">
-                </div>
-                <div class="col-md-6 col-md-offset-2">
-                <h3>Esaretin Bedeli</h3>
-
-                <br>
-                yönetmen:loremcik loremoğlu
-
-                <br>
-
-                yıl: 199868
-
-                <br>
-
-                oyuncular: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quae velit temporibus non tenetur
-
-
-                <br>
-
-
-                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right">
-                </div>
-            </div>
-            
-        </div>
-
-        <div class="col-md-8 col-md-offset-2 cont-movie">
-            <div class="row movie">
-                <div class="col-md-4">
-                    <img src="img/yesilyol-dikey.jpg" alt="" class="img-responsive img-movie">
-                </div>
-                <div class="col-md-6 col-md-offset-2">
-                <h3>Esaretin Bedeli</h3>
-
-                <br>
-                yönetmen:loremcik loremoğlu
-
-                <br>
-
-                yıl: 199868
-
-                <br>
-
-                oyuncular: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quae velit temporibus non tenetur
-
-
-                <br>
-
-
-                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right">
-                </div>
-            </div>
-            
-        </div>
-
-        <div class="col-md-8 col-md-offset-2 cont-movie">
-            <div class="row movie">
-                <div class="col-md-4">
-                    <img src="img/yesilyol-dikey.jpg" alt="" class="img-responsive img-movie">
-                </div>
-                <div class="col-md-6 col-md-offset-2">
-                <h3>Esaretin Bedeli</h3>
-
-                <br>
-                yönetmen:loremcik loremoğlu
-
-                <br>
-
-                yıl: 199868
-
-                <br>
-
-                oyuncular: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci quae velit temporibus non tenetur
-
-
-                <br>
-
-
-                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right">
-                </div>
-            </div>
-            
-        </div>
+    </div>
     </div>
 <?php include 'footer.php'; ?>
 

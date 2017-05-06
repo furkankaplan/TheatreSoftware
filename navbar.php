@@ -10,7 +10,7 @@
       <a class="navbar-brand" href="index.php"></a>
     </div>
 <div class="collapse navbar-collapse">
-	
+	<img src="img/logo.png" height="50px" width="75px"/>
 	<ul class="nav navbar-nav navbar-right">
         <li><a href="theatre.php">Tiyatro</a></li>
         <li><a href="movie.php">Sinema</a></li>

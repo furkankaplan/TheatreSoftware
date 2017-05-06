@@ -4,7 +4,6 @@ include ("connect.php");
 
 $isim = $_POST["fname"];
 $stars = $_POST["fstars"];
-$fragman = $_POST["fmovieclip"];
 $tarih = $_POST["tarih"];
 $seans = $_POST["seans"];
 $ozet = $_POST["fsummary"];
@@ -12,7 +11,7 @@ $fid=$_POST["fid"];
 $gosterim_turu =$_POST["gosterim_turu"];
 $yonetmen = $_POST["fyonetmen"];
 
-$obj = new Films();
+$obj = new Tiyatrolar();
 
  $klasor="../img";
 
@@ -22,7 +21,7 @@ $obj = new Films();
 
   move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']['name']); 
 
-  $updateing = $obj -> updateFilms($tarih,$yonetmen, $seans,$isim,$stars,$ozet,$fragman,$poster,$gosterim_turu,$fid);
+  $updateing = $obj -> updateTiyatrolar($tarih,$yonetmen, $seans,$isim,$stars,$ozet,$poster,$gosterim_turu,$fid);
 
 if ($updateing) {
 	echo "Başarılı";?>
@@ -41,16 +40,16 @@ echo "Filmi afiş ile birlikte güncellerken hata oluştu.";
 
 else {
   //Dosya Yüklenmediyse sadece slide bilgilerini güncelle
-    $dizi = $obj -> getFilmsByID($fid);
+    $dizi = $obj -> getTiyatrolarByID($fid);
     $poster = $obj -> getAfis($dizi);
 
-    $updateing = $obj -> updateFilms($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$fragman,$poster,$gosterim_turu,$fid);
+    $updateing = $obj -> updateTiyatrolar($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$poster,$gosterim_turu,$fid);
   
 
 if($updateing){
 echo "oldu2";?>
   <script>
-  setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
+  setTimeout(function(){ window.location.href='tiyatrolar.php'; }, 3000);
 
   </script>
 <?php

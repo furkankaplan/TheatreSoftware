@@ -2,12 +2,12 @@
 
 <div class="container" >
 
-<form action="gonder.php" method="POST" enctype='multipart/form-data'>
+<form action="gonderTiyatro.php" method="POST" enctype='multipart/form-data'>
 		<div class="row">
 		<div class="col-md-4">
-		<h4>Film Adı</h4>
+		<h4>Tiyatro Adı</h4>
 		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Film Adı" name="fname"  required>
+		<input type="text" class="form-control" placeholder="Tiyatro Adı" name="fname"  required>
 		</div>
 		</div>
 
@@ -44,13 +44,6 @@
 		</div>
 		</div>
 
-		<div class="col-md-4">
-		<h4>Fragman Linki</h4>
-		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Fragman Linki" name="fmovieclip"  required>
-		</div>
-		</div>
-
 
 	</div>
 
@@ -67,14 +60,13 @@
 </div>
 </div>
 <div class="row">
-    <div class="row">
-        <div class="col-md-4">
-            <h4>Yonetmen</h4>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Yonetmen adı" name="fyonetmen" required>
-            </div>
+    <div class="col-md-4">
+        <h4>Yonetmen</h4>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Yonetmen adı" name="tyonetmen" required>
         </div>
-        <br>
+    </div>
+    <br>
 	<div class="col-md-4">
 		<h4>Gösterim Tarihi</h4>
 		<div class="input-group">
@@ -86,7 +78,7 @@
 	
 </div>
 
-<div class="col-md-3"><input type="submit"  value=" Filmi Ekle" id="btn-payment"  class="btn btn-danger"></button></div>
+<div class="col-md-3"><input type="submit"  value=" Tiyatro Ekle" id="btn-payment"  class="btn btn-danger"></button></div>
 
 </form>
 </div>

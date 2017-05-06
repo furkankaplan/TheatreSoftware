@@ -4,12 +4,12 @@ include("../Classes.php");
 
 $isim = $_POST["fname"];
 $stars = $_POST["fstars"];
-$fragman = $_POST["fmovieclip"];
 $tarih = $_POST["tarih"];
 $seans = $_POST["seans"];
 $ozet = $_POST["fsummary"];
 $gosterim_turu =$_POST["gosterim_turu"];
-$yonetmen = $_POST["fyonetmen"];
+$yonetmen = $_POST["tyonetmen"];
+
 $klasor = "../img/";
 
 if($_FILES){
@@ -19,16 +19,16 @@ move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']
 
 }
 
-if(($isim!=NULL) && ($stars!= NULL) && ($fragman!=NULL)   && ($tarih!=NULL) && ($seans!=NULL) && ($ozet!=NULL)){
+if(($isim!=NULL) && ($stars!= NULL)  && ($tarih!=NULL) && ($seans!=NULL) && ($ozet!=NULL)){
 
-$filmler= $db->prepare("insert into filmler set gosterim_tarihi=?, yonetmen=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=?");
+$filmler= $db->prepare("insert into tiyatrolar set gosterim_tarihi=?,yonetmen=?,seans=?,tiyatro_adi=?,oyuncular=?,ozet=?,afis=?,gosterim_turu=?");
 
-$adding = $filmler -> execute(array($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$fragman,$resim,$gosterim_turu));
+$adding = $filmler -> execute(array($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$resim,$gosterim_turu));
 
 if ($adding) {
 	echo "Başarılı";?>
 	<script>
-	setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
+	setTimeout(function(){ window.location.href='tiyatrolar.php'; }, 3000);
 
 	</script>
 <?php

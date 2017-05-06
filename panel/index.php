@@ -1,3 +1,9 @@
+<?php
+
+if(!isset($_SESSION["uye_adi"])){
+    header("Location:giris.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

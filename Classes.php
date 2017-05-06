@@ -17,30 +17,19 @@ class Films{
 
     public function getFilmsByGosterimTuru($offset){
         global $db;
-        $filmler = $db ->prepare("select * from filmler where gosterim_turu='".$offset."'");
-        $filmler -> execute(array());
+        $filmler = $db ->prepare("select * from filmler where gosterim_turu=?");
+        $filmler -> execute(array($offset));
         $dizi = $filmler -> fetchALL(PDO::FETCH_ASSOC);
         return $dizi;
     }
 
-    public function updateFilms($tarih, $seans, $isim, $stars, $ozet,$fragman, $poster, $gosterim_turu,$id){
+    public function updateFilms($tarih, $yonetmen, $seans, $isim, $stars, $ozet,$fragman, $poster, $gosterim_turu,$id){
         global $db;
-        $filmler= $db->prepare("update filmler set gosterim_tarihi=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=? where id=?");
-        $updateing = $filmler -> execute(array($tarih,$seans,$isim,$stars,$ozet,$fragman,$poster,$gosterim_turu,$id));
+        $filmler= $db->prepare("update filmler set gosterim_tarihi=?, yonetmen=?, seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=? where id=?");
+        $updateing = $filmler -> execute(array($tarih,$yonetmen, $seans, $isim,$stars,$ozet,$fragman,$poster,$gosterim_turu,$id));
         return $updateing;
     }
 
-    public function updateFilms2($tarih, $sira_no, $isim, $stars, $ozet, $fragman, $poster){
-        global $db;
-        $filmler= $db->prepare("update filmler set gosterim_tarihi=?,sira_no=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=? ");
-        $updateing = $filmler -> execute(array($tarih,$sira_no,$isim,$stars,$ozet,$fragman,$poster));
-        if ($updateing) {
-            return "Başarılı";
-        }
-        else {
-            return "Filmi update ederken hata oluştu!";
-        }
-    }
 
     public function getFilmAdi($dizi){
         return $dizi["film_adi"];
@@ -66,6 +55,70 @@ class Films{
         return $dizi["fragman"];
     }
 
+    public function getYonetmen($dizi){
+        return $dizi["yonetmen"];
+    }
+
+    public function getGosterimTarihi($dizi){
+        return $dizi["gosterim_tarihi"];
+    }
+
+
+    public function getID($dizi){
+        return $dizi["id"];
+    }
+
+}
+
+
+class Tiyatrolar{
+    public function getTiyatrolarByID($id){
+        global $db;
+        $filmler = $db ->prepare("select * from tiyatrolar where id=? ");
+        $filmler -> execute(array($id));
+        $dizi = $filmler -> fetch(PDO::FETCH_ASSOC);
+        return $dizi;
+    }
+
+    public function getTiyatrolarByGosterimTuru($offset){
+        global $db;
+        $filmler = $db ->prepare("select * from tiyatrolar where gosterim_turu=?");
+        $filmler -> execute(array($offset));
+        $dizi = $filmler -> fetchALL(PDO::FETCH_ASSOC);
+        return $dizi;
+    }
+
+    public function updateTiyatrolar($tarih, $yonetmen, $seans, $isim, $stars, $ozet,$poster, $gosterim_turu,$id){
+        global $db;
+        $filmler= $db->prepare("update tiyatrolar set gosterim_tarihi=?, yonetmen=?, seans=?,tiyatro_adi=?,oyuncular=?,ozet=?,afis=?,gosterim_turu=? where id=?");
+        $updateing = $filmler -> execute(array($tarih,$yonetmen, $seans, $isim,$stars,$ozet,$poster,$gosterim_turu,$id));
+        return $updateing;
+    }
+
+
+    public function getTiyatroAdi($dizi){
+        return $dizi["tiyatro_adi"];
+    }
+
+    public function getOyuncular($dizi){
+        return $dizi["oyuncular"];
+    }
+
+    public function getOzet($dizi){
+        return $dizi["ozet"];
+    }
+
+    public function getSeans($dizi){
+        return $dizi["seans"];
+    }
+
+    public function getAfis($dizi){
+        return $dizi["afis"];
+    }
+
+    public function getYonetmen($dizi){
+        return $dizi["yonetmen"];
+    }
 
     public function getGosterimTarihi($dizi){
         return $dizi["gosterim_tarihi"];

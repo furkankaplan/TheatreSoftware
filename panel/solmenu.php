@@ -23,7 +23,8 @@
 
 	<ul class="list-group">
 	  <li class="list-group-item"><a href="filmler.php">Filmler</a></li>
-	  <li class="list-group-item"><a href="index.php?k=profil">Profil</a></li>
+      <li class="list-group-item"><a href="tiyatrolar.php">Tiyatrolar</a></li>
+      <li class="list-group-item"><a href="index.php?k=profil">Profil</a></li>
 	  <li class="list-group-item"><a href="index.php?k=sosyal">Sosyal Medya</a></li>
 	  <li class="list-group-item"><a href="slider.php">Slider</a></li>
 	 

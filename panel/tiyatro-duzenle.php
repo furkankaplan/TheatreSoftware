@@ -29,15 +29,14 @@ include ("connect.php");
 
 $id=$_GET["id"];
 
-$dizi = new Films();
-$result = $dizi -> getFilmsByID($id);
+$dizi = new Tiyatrolar();
+$result = $dizi -> getTiyatrolarByID($id);
 
-$isim = $dizi -> getFilmAdi($result);
+$isim = $dizi -> getTiyatroAdi($result);
 $oyuncular = $dizi -> getOyuncular($result);
 $ozet = $dizi -> getOzet($result);
 $seans = $dizi -> getSeans($result);
 $poster = $dizi -> getAfis($result);
-$fragman = $dizi -> getFragman($result);
 $tarih = $dizi -> getGosterimTarihi($result);
 $id= $dizi -> getID($result);
 $yonetmen = $dizi -> getYonetmen($result);
@@ -47,18 +46,18 @@ $yonetmen = $dizi -> getYonetmen($result);
 
 <div class="container-fluid" >
 
-<form action="duzenle.php" method="POST" enctype="multipart/form-data">
+<form action="duzenle2.php" method="POST" enctype="multipart/form-data">
 		<div class="row">
 
         <div class="col-md-4">
-            <h4>Filmin ID'si</h4>
+            <h4>Tiyatronun ID'si</h4>
             <div class="input-group">
                  <input type="text" class="form-control"  name="fid" value="<?php echo $id; ?>" readonly>
             </div>
         </div>
 
 		<div class="col-md-4">
-		<h4>Film Adı</h4>
+		<h4>Tiyatronun Adı</h4>
 		<div class="input-group">
 		<input type="text" class="form-control" placeholder="Film Adı" name="fname" value="<?php echo $isim; ?>" required>
 		</div>
@@ -75,7 +74,7 @@ $yonetmen = $dizi -> getYonetmen($result);
 		<div class="col-md-4">
 		<h4>Özet</h4>
 		<div class="input-group">
-		<textarea  class="form-control" placeholder="Özet" name="fsummary"  required rows="4" cols="50"><?php echo $ozet; ?> </textarea>
+		<textarea  class="form-control" placeholder="Özet" name="fsummary" required rows="4" cols="50"> <?php echo $ozet; ?></textarea>
 		
 		</div>
 		</div>
@@ -95,13 +94,6 @@ $yonetmen = $dizi -> getYonetmen($result);
 		<h4>Gösterim Tarihi</h4>
 		<div class="input-group">
 		<input type="date" class="form-control" placeholder="Fragman Linki" name="tarih" value="<?php echo $tarih; ?>"  required>
-		</div>
-		</div>
-		
-		<div class="col-md-4">
-		<h4>Fragman Linki</h4>
-		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Fragman Linki" name="fmovieclip"  value="<?php echo $fragman; ?>" required>
 		</div>
 		</div>
 

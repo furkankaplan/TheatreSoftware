@@ -47,7 +47,7 @@ $ozet = $dizi -> getOzet($result);
 $gosterim_tarihi = $dizi -> getGosterimTarihi($result);
 $afis = $dizi -> getAfis($result);
 $fragman = $dizi -> getFragman($result);
-
+$yonetmen = $dizi -> getYonetmen($result);
 echo '<div class="row">
    
     <div class="col-md-6"><div class="embed-responsive embed-responsive-4by3 ">
@@ -66,6 +66,7 @@ echo '<div class="row">
 
                     <tbody>
                         <tr><td width="25%">Film İsmi:</td> <td>'.$film_adi.'</td> </tr>
+                        <tr><td width="25%">Yönetmen:</td> <td>'.$yonetmen.'</td> </tr>
                         <tr><td>Oyuncular: </td> <td>'.$oyuncular.'</td></tr>
 
 
