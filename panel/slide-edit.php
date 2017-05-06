@@ -15,8 +15,8 @@ $id=$_POST["id"];
   
   move_uploaded_file($_FILES['thumb']['tmp_name'],$klasor."/".$_FILES['thumb']['name']); 
   $obj = new SliderFilm();
-  $slayt_duzenle = $obj -> updateSliderFilm($slayt_adi,$slide_resim,$slide_yazi,$slide_linki,$id);
-  if($slayt_duzenle){
+
+  if($obj -> updateSliderFilm($slayt_adi,$slide_resim,$slide_yazi,$slide_linki,$id)){
     echo "slayt değiştirildi.<br>";
   }else{
   	echo"slayt değiştirilemedi<br>";

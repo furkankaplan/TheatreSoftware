@@ -1,13 +1,12 @@
 <?php
 
-include ("film_db.php");
+include ("connect.php");
 
 $id = $_GET["k"];
 
-$slider_film = $db -> prepare("delete from slider where id=?");
-$deleteing = $slider_film->execute (array($id));
+$obj = new Slider();
 
-if ($deleteing) {
+if ($obj -> deleteSlider($id)) {
 	echo "Silindi";
 	?>
 	<script>
@@ -18,8 +17,6 @@ if ($deleteing) {
 
 	else {
 		echo "Silinmedi";
-		$hatam = $slider_film->errorInfo();
-		echo $hatam[2];
 
 	}
 

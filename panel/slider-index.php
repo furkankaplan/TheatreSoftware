@@ -23,16 +23,15 @@
 
 
                       <?php 
-                     $slider_film = $db ->prepare("select * from slider");
-                     $slider_film -> execute(array());
-                     $dizi = $slider_film -> fetchALL(PDO::FETCH_ASSOC);
+                     $dizi = new Slider();
+                     $result = $dizi -> getSliderAll();
 
-                     foreach ($dizi as $elements) {
-                        $id = $elements["id"];
-                        $slidename = $elements["slayt_adi"];
-                        $slidelink = $elements["slide_linki"];
-                        $slidephoto = $elements["slide_resim"];
-                        $slidewriting = $elements["slide_yazi"];
+                     foreach ($result as $elements) {
+                        $id = $dizi -> getID($elements);
+                        $slidename = $dizi -> getAdi($elements);
+                        $slidelink = $dizi -> getLink($elements);
+                        $slidephoto = $dizi -> getResmi($elements);
+                        $slidewriting = $dizi -> getYazi($elements);
 
                         echo ' <tr>
                         <td>'.$slidename.'</td>

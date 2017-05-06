@@ -1,6 +1,6 @@
 <?php
 
-include ("film_db.php");
+include ("connect.php");
 
 $film_id = $_GET["k"];
 

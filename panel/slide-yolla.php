@@ -17,8 +17,7 @@ else{
 	echo "Resim bulunamadı.";
 }
 $dizi = new Slider();
-$adding = $dizi -> insertSlider($slidename,$isim,$slidewriting,$slidelink);
-if ($adding) {
+if ($dizi -> insertSlider($slidename,$isim,$slidewriting,$slidelink)) {
 	echo "Başarılı";?>
 	<script>
 	setTimeout(function(){ window.location.href='slider.php'; }, 3000);
@@ -32,8 +31,7 @@ if ($adding) {
 }
 else {
 
-$hatam=$slider_film->errorInfo();
-echo $hatam[2];
+echo "İnsertSlider hsql hatası!";
 }
 
 

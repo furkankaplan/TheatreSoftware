@@ -13,16 +13,13 @@
 
             include ("connect.php");
 
-           $slider = $db ->prepare("select * from slider");
-                     $slider -> execute(array());
-                     $dizi = $slider -> fetchALL(PDO::FETCH_ASSOC);
-
-                     foreach ($dizi as $elements) {
-                        $id = $elements["id"];
-                        $slidename= $elements["slayt_adi"];
-                        $slide_resmi = $elements["slide_resim"];
-                        $slide_yazi = $elements["slide_yazi"];
-
+            $obj = new Slider();
+            $dizi = $obj -> getSliderAll();
+            foreach ($dizi as $elements) {
+               $id = $obj -> getID($elements);
+               $slidename = $obj -> getAdi($elements);
+               $slide_yazi = $obj -> getYazi($elements);
+                $slide_resmi = $obj -> getResmi($elements);
             
             echo ' <div data-p="225.00">
                 

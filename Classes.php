@@ -30,6 +30,18 @@ class Films{
         return $updateing;
     }
 
+    public function updateFilms2($tarih, $sira_no, $isim, $stars, $ozet, $fragman, $poster){
+        global $db;
+        $filmler= $db->prepare("update filmler set gosterim_tarihi=?,sira_no=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=? ");
+        $updateing = $filmler -> execute(array($tarih,$sira_no,$isim,$stars,$ozet,$fragman,$poster));
+        if ($updateing) {
+            return "Başarılı";
+        }
+        else {
+            return "Filmi update ederken hata oluştu!";
+        }
+    }
+
     public function getFilmAdi($dizi){
         return $dizi["film_adi"];
     }
@@ -170,10 +182,18 @@ class Slider{
 
     public function getSlider($id){
         global $db;
-        $slider_film = $db ->prepare("select * from slider_film where id=? ");
-        $slider_film -> execute(array($id));
-        $elements = $slider_film -> fetch(PDO::FETCH_ASSOC);
-        return $elements;
+        $slider = $db ->prepare("select * from slider WHERE id=?");
+        $slider -> execute(array($id));
+        $dizi = $slider -> fetch(PDO::FETCH_ASSOC);
+        return $dizi;
+    }
+
+    public function getSliderAll(){
+        global $db;
+        $slider = $db ->prepare("select * from slider");
+        $slider -> execute(array());
+        $dizi = $slider -> fetchALL(PDO::FETCH_ASSOC);
+        return $dizi;
     }
     public function insertSlider($slidename,$isim,$slidewriting,$slidelink){
         global $db;
@@ -181,19 +201,39 @@ class Slider{
         $adding = $slider_film -> execute(array($slidename,$isim,$slidewriting,$slidelink));
         return $adding;
     }
+
+    public function updateSlider($slayt_adi,$slide_resim, $slide_yazi,$slide_linki,$guncelleyen,$guncellenme_tarihi,$id){
+        global $db;
+        if($slide_resim != false){
+            $sorgu2=$db->prepare("update slider set slayt_adi=?,slide_resim=?,slide_yazi=?,slide_linki=?,guncelleyen=?,guncellenme_tarihi=? where id=?");
+            $slayt_duzenle=$sorgu2->execute(array($slayt_adi,$slide_resim,$slide_yazi,$slide_linki,$guncelleyen,$guncellenme_tarihi,$id));
+        }else{
+            $sorgu2=$db->prepare("update slider set slayt_adi=?,slide_yazi=?,slide_linki=?,guncelleyen=?,guncellenme_tarihi=? where id=?");
+            $slayt_duzenle=$sorgu2->execute(array($slayt_adi,$slide_yazi,$slide_linki,$guncelleyen,$guncellenme_tarihi,$id));
+        }
+        return $slayt_duzenle;
+    }
+
+    public function deleteSlider($id){
+        global $db;
+        $slider_film = $db -> prepare("delete from slider where id=?");
+        $deleteing = $slider_film->execute (array($id));
+        return $deleteing;
+    }
+
     public function getAdi($dizi){
-        return $dizi["slider_adi"];
+        return $dizi["slayt_adi"];
     }
 
     public function getLink($dizi){
-        return $dizi["slider_link"];
+        return $dizi["slide_link"];
     }
 
     public function getResmi($dizi){
-        return $dizi["slider_resmi"];
+        return $dizi["slide_resim"];
     }
     public function getYazi($dizi){
-        return $dizi["slider_yazi"];
+        return $dizi["slide_yazi"];
     }
 
     public function getID($dizi){

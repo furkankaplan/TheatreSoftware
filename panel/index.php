@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<?php include ("film_db.php"); ?>
+<?php include ("connect.php"); ?>
 
 
     

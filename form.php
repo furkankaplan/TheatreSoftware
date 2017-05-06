@@ -1,4 +1,4 @@
-<?php include("Classes.php");?>
+<?php include("Classes.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
