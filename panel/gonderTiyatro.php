@@ -21,11 +21,9 @@ move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']
 
 if(($isim!=NULL) && ($stars!= NULL)  && ($tarih!=NULL) && ($seans!=NULL) && ($ozet!=NULL)){
 
-$filmler= $db->prepare("insert into tiyatrolar set gosterim_tarihi=?,yonetmen=?,seans=?,tiyatro_adi=?,oyuncular=?,ozet=?,afis=?,gosterim_turu=?");
+$obj = new Tiyatrolar();
 
-$adding = $filmler -> execute(array($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$resim,$gosterim_turu));
-
-if ($adding) {
+if ($obj -> insertTiyatrolar($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$resim,$gosterim_turu)) {
 	echo "Başarılı";?>
 	<script>
 	setTimeout(function(){ window.location.href='tiyatrolar.php'; }, 3000);
@@ -34,16 +32,14 @@ if ($adding) {
 <?php
 }
 else {
-
-$hatam=$filmler->errorInfo();
-echo $hatam[2];
+ echo "tiyatrolar güncelleme hatası.";
 }
 
 
 }
 
 else{
-	echo "Failed";
+	echo "Hİçbir alan boş geçilemez!";
 
 }
 

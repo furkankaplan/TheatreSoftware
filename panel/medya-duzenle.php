@@ -18,9 +18,7 @@ if ($updateing) {
 	</script>
 <?php }
 else {
-
-$hatam=$filmler->errorInfo();
-echo $hatam[2];
+echo "updateSosyalMedya hatalı çalıştı!";
 }
 ?>
 

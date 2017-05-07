@@ -9,14 +9,13 @@
 
 <?php
 include ("connect.php");
+include "Classes.php";
+$dizi = new Sosyalmedya();
+$result = $dizi -> getSosyalmedya();
 
-$sosyalmedya = $db ->prepare("select * from sosyalmedya");
-$sosyalmedya -> execute(array());
-$dizi = $sosyalmedya -> fetch(PDO::FETCH_ASSOC);
-
-$facebook = $dizi["facebook"];
-$googleplus=$dizi["googleplus"];
-$instagram=$dizi["instagram"];
+$facebook = $dizi -> getFacebook($result);
+$googleplus= $dizi -> getGooglePlus($result);
+$instagram= $dizi -> getInstagram($result);
 
 
 ?>

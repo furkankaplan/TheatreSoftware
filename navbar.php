@@ -1,3 +1,8 @@
+<script>
+    function goIndex() {
+        location = "index.php";
+    }
+</script>
 <nav class="navbar navbar-default navbar-fixed-top">
 <div class="container-fluid">
 		<div class="navbar-header">
@@ -10,7 +15,17 @@
       <a class="navbar-brand" href="index.php"></a>
     </div>
 <div class="collapse navbar-collapse">
-	<img src="img/logo.png" height="50px" width="75px"/>
+    <div  onclick="goIndex()" style="display: inline-block">
+        <div style="display: inline-block;float:left;">
+            <img src="img/logo.png" height="50px" width="65px" />
+        </div>
+        <div style="display: inline-block;">
+            <div style="display: table; height: 50px;">
+                <div style="display: table-cell; vertical-align: middle; font-weight: bolder; font-size: 20px; color: white;">Soft Theatre</div>
+            </div>
+        </div>
+    </div>
+
 	<ul class="nav navbar-nav navbar-right">
         <li><a href="theatre.php">Tiyatro</a></li>
         <li><a href="movie.php">Sinema</a></li>

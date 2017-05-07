@@ -1,25 +1,21 @@
 <?php
 
 include ("connect.php");
+include_once ("../Classes.php");
 
 $film_id = $_GET["k"];
 
-$filmler = $db -> prepare("delete from filmler where id=?");
-$deleteing = $filmler->execute (array($film_id));
+$obj = new Films();
 
-if ($deleteing) {
+if ($obj -> deleteFilms($film_id)) {
 	echo "Silindi";?>
 	<script>
 	setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
-
 	</script>
-<?php }
+<?php
 
-	else {
-		echo "Silinmedi";
-		$hatam = $filmler->errorInfo();
-		echo $hatam[2];
-
+    } else {
+		echo "Silinemedi";
 	}
 
  ?>

@@ -30,6 +30,19 @@ class Films{
         return $updateing;
     }
 
+    public function  insertFilms($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$fragman,$resim,$gosterim_turu){
+        global $db;
+        $filmler= $db->prepare("insert into filmler set gosterim_tarihi=?, yonetmen=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=?");
+        $adding = $filmler -> execute(array($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$fragman,$resim,$gosterim_turu));
+        return $adding;
+    }
+
+    public function deleteFilms($film_id){
+        global $db;
+        $filmler = $db -> prepare("delete from filmler where id=?");
+        $deleteing = $filmler->execute (array($film_id));
+        return $deleteing;
+    }
 
     public function getFilmAdi($dizi){
         return $dizi["film_adi"];
@@ -70,7 +83,6 @@ class Films{
 
 }
 
-
 class Tiyatrolar{
     public function getTiyatrolarByID($id){
         global $db;
@@ -80,6 +92,13 @@ class Tiyatrolar{
         return $dizi;
     }
 
+    public function getTiyatrolar(){
+        global $db;
+        $tiyatrolar = $db ->prepare("select * from tiyatrolar");
+        $tiyatrolar -> execute(array());
+        $dizi = $tiyatrolar -> fetchALL(PDO::FETCH_ASSOC);
+        return $dizi;
+    }
     public function getTiyatrolarByGosterimTuru($offset){
         global $db;
         $filmler = $db ->prepare("select * from tiyatrolar where gosterim_turu=?");
@@ -95,6 +114,19 @@ class Tiyatrolar{
         return $updateing;
     }
 
+    public function insertTiyatrolar($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$resim,$gosterim_turu){
+        global  $db;
+        $filmler= $db->prepare("insert into tiyatrolar set gosterim_tarihi=?,yonetmen=?,seans=?,tiyatro_adi=?,oyuncular=?,ozet=?,afis=?,gosterim_turu=?");
+        $adding = $filmler -> execute(array($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$resim,$gosterim_turu));
+        return $adding;
+    }
+
+    public function deleteTiyatrolar($tiyatro_id){
+        global $db;
+        $tiyatrolar = $db -> prepare("delete from tiyatrolar where id=?");
+        $deleteing = $tiyatrolar->execute (array($tiyatro_id));
+        return $deleteing;
+    }
 
     public function getTiyatroAdi($dizi){
         return $dizi["tiyatro_adi"];
@@ -198,7 +230,7 @@ class Kullanicilar{
     }
 
     public function getUyeID($dizi){
-        return $dizi["uye_id"];
+        return $dizi["id"];
     }
 }
 

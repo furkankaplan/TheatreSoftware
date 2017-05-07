@@ -52,15 +52,14 @@ $(document).ready(function(){
 
                     <tbody>
                       <?php
-                      $tiyatrolar = $db ->prepare("select * from tiyatrolar");
-                      $tiyatrolar -> execute(array());
-                     $dizi = $tiyatrolar -> fetchALL(PDO::FETCH_ASSOC);
+                     $obj = new Tiyatrolar();
+                     $dizi = $obj -> getTiyatrolar();
 
                      foreach ($dizi as $elements) {
-                        $id = $elements["id"];
-                        $tiyatro_adi= $elements["tiyatro_adi"];
-                        $seans = $elements["seans"];
-                        $gosterim_tarihi = $elements["gosterim_tarihi"];
+                        $id = $obj -> getID($elements);
+                        $tiyatro_adi=  $obj -> getTiyatroAdi($elements);
+                        $seans = $obj -> getSeans($elements);
+                        $gosterim_tarihi = $obj -> getGosterimTarihi($elements);
 
                         echo ' <tr>
                         <td>'.$tiyatro_adi.'</td>

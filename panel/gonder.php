@@ -21,11 +21,9 @@ move_uploaded_file($_FILES['fposter']['tmp_name'],$klasor."/".$_FILES['fposter']
 
 if(($isim!=NULL) && ($stars!= NULL) && ($fragman!=NULL)   && ($tarih!=NULL) && ($seans!=NULL) && ($ozet!=NULL)){
 
-$filmler= $db->prepare("insert into filmler set gosterim_tarihi=?, yonetmen=?,seans=?,film_adi=?,oyuncular=?,ozet=?,fragman=?,afis=?,gosterim_turu=?");
+$obj = new Films();
 
-$adding = $filmler -> execute(array($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$fragman,$resim,$gosterim_turu));
-
-if ($adding) {
+if ($obj -> insertFilms($tarih,$yonetmen,$seans,$isim,$stars,$ozet,$fragman,$resim,$gosterim_turu)) {
 	echo "Başarılı";?>
 	<script>
 	setTimeout(function(){ window.location.href='filmler.php'; }, 3000);
@@ -34,16 +32,14 @@ if ($adding) {
 <?php
 }
 else {
-
-$hatam=$filmler->errorInfo();
-echo $hatam[2];
+echo "film insert işlemi hatalı!";
 }
 
 
 }
 
 else{
-	echo "Failed";
+	echo "Hiçbir alan boş geçilemez!";
 
 }
 

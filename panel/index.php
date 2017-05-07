@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if(!isset($_SESSION["uye_adi"])){
     header("Location:giris.php");
 }
