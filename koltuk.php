@@ -27,18 +27,29 @@ include ("connect.php");
 $id=$_GET["x"];
 
 
+if(isset($_GET["t"])){
+    $dizi = new Tiyatrolar();
+    $result = $dizi -> getTiyatrolarByID($id);
 
-$dizi = new Films();
-$result = $dizi -> getFilmsByID($id);
+    $isim = $dizi -> getTiyatroAdi($result);
+    $oyuncular = $dizi -> getOyuncular($result);
+    $ozet = $dizi -> getOzet($result);
+    $seans = $dizi -> getSeans($result);
+    $poster = $dizi -> getAfis($result);
+    $tarih = $dizi -> getGosterimTarihi($result);
+}else{
 
-$isim = $dizi -> getFilmAdi($result);
-$oyuncular = $dizi -> getOyuncular($result);
-$ozet = $dizi -> getOyuncular($result);
-$seans = $dizi -> getSeans($result);
-$poster = $dizi -> getAfis($result);
-$fragman = $dizi -> getFragman($result);
-$tarih = $dizi -> getGosterimTarihi($result);
-$id= $dizi -> getID($result);
+    $dizi = new Films();
+    $result = $dizi -> getFilmsByID($id);
+
+    $isim = $dizi -> getFilmAdi($result);
+    $oyuncular = $dizi -> getOyuncular($result);
+    $ozet = $dizi -> getOyuncular($result);
+    $seans = $dizi -> getSeans($result);
+    $poster = $dizi -> getAfis($result);
+    $tarih = $dizi -> getGosterimTarihi($result);
+
+}
 
  ?>
 
@@ -180,7 +191,7 @@ $id= $dizi -> getID($result);
 	
 
 <div class="row payment-row">
-	  <form action="bilet.php?b=<?php echo $id;?>" method="post">
+	  <form action="bilet.php?b=<?php echo $id;?><?php echo isset($_GET["t"])?"&t=t":""; ?>" method="post">
  		<div class="col-md-7"><input type="text" class="form-control pull-right" id="secimler" name="ticket" value=" " readonly></div> 
    	<div class="col-md-3"><input type="submit" disabled="true" value=" BİLETİ ONAYLA" id="btn-payment"  class="btn btn-danger btn-payment" onclick="seatTaken()"></div>
    	<div class="col-md-2"><input type="reset" onclick="sifirla()"  value="Sıfırla" class="btn btn-warning btn-reset"></input></div>

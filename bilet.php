@@ -54,7 +54,6 @@ $seans = $dizi -> getSeans($result);
 $poster = $dizi -> getAfis($result);
 $fragman = $dizi -> getFragman($result);
 $tarih = $dizi -> getGosterimTarihi($result);
-$id= $dizi -> getID($result)
 
  ?>
 
@@ -70,7 +69,7 @@ $ticketNums = $_POST["ticketNum"];
 
 
 
-$ticketcosting= $ticketNums * 10
+$ticketcosting = $ticketNums * 10
 
 ?>
 
@@ -78,7 +77,7 @@ $ticketcosting= $ticketNums * 10
 <div class="row" style="margin:100px;">
 
 
-<form action="form.php?y=<?php echo $id;?>" method="post" name="ticketform">
+<form action="form.php?y=<?php echo $id;?><?php echo isset($_GET["t"])?"&t=t":""; ?>" method="post" name="ticketform">
 <div class="col-md-3">
 <?php echo '<div class="panel panel-default">
 	<div class="panel-heading"><h4>Oyun Bilgileri</h4></div>

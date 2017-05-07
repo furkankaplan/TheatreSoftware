@@ -31,30 +31,43 @@ include ("connect.php");
 
 $id=$_GET["y"];
 
-$dizi = new Films();
 
-$result = $dizi -> getFilmsByID($id);
-$film = $dizi -> getFilmAdi($result);
-$oyuncular = $dizi -> getOyuncular($result);
-$ozet = $dizi -> getOzet($result);
-$seans = $dizi -> getSeans($result);
-$poster = $dizi -> getAfis($result);
-$fragman = $dizi -> getFragman($result);
-$tarih = $dizi -> getGosterimTarihi($result);
-$id= $dizi -> getID($result);
+if(isset($_GET["t"])){
+    $dizi = new Tiyatrolar();
+    $result = $dizi -> getTiyatrolarByID($id);
+
+    $film = $dizi -> getTiyatroAdi($result);
+    $oyuncular = $dizi -> getOyuncular($result);
+    $ozet = $dizi -> getOzet($result);
+    $seans = $dizi -> getSeans($result);
+    $poster = $dizi -> getAfis($result);
+    $tarih = $dizi -> getGosterimTarihi($result);
+}else{
+
+    $dizi = new Films();
+    $result = $dizi -> getFilmsByID($id);
+
+    $film = $dizi -> getFilmAdi($result);
+    $oyuncular = $dizi -> getOyuncular($result);
+    $ozet = $dizi -> getOyuncular($result);
+    $seans = $dizi -> getSeans($result);
+    $poster = $dizi -> getAfis($result);
+    $tarih = $dizi -> getGosterimTarihi($result);
+
+}
 
  ?>
 
 
 	<?php 
-$isim = $_POST["name"];
-$soyisim = $_POST["surname"];
-$telno = $_POST["telNumber"];
-$emailadress = $_POST["email"];
-$bilettip = $_POST["selectticket"];
-$koltuksayisi =$_POST["ticketNums"];
-$cost =$_POST["ucret"];
-$koltuk = $_POST["koltuknumarasi"];
+$isim = @$_POST["name"];
+$soyisim = @$_POST["surname"];
+$telno = @$_POST["telNumber"];
+$emailadress = @$_POST["email"];
+$bilettip = @$_POST["selectticket"];
+$koltuksayisi =@$_POST["ticketNums"];
+$cost =@$_POST["ucret"];
+$koltuk = @$_POST["koltuknumarasi"];
 
 
 
@@ -98,7 +111,9 @@ foreach($biletler as $eleman){
             echo'
             <table class="table table-bordered table-striped">
              <tr>
-              <td  colspan="2" width="40" style="text-align:left;">Film İsmi:</td>
+              <td  colspan="2" width="40" style="text-align:left;">';
+            echo isset($_GET["tiyatro"])?"Tiyatro":"Film";
+                echo ' İsmi:</td>
               <td  colspan="4" style="text-align:left;">'.$film.'</td>
              </tr>
              <tr>

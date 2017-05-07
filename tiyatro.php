@@ -65,7 +65,7 @@ echo '<div class="row">
                 
 
                     <tbody>
-                        <tr><td width="25%">Film İsmi:</td> <td>'.$film_adi.'</td> </tr>
+                        <tr><td width="25%"> İsmi:</td> <td>'.$film_adi.'</td> </tr>
                         <tr><td width="25%">Yönetmen:</td> <td>'.$yonetmen.'</td> </tr>
                         <tr><td>Oyuncular: </td> <td>'.$oyuncular.'</td></tr>
 
@@ -75,7 +75,7 @@ echo '<div class="row">
 
                         <tr><td>Seans Uzunluğu: </td><td>'.$seans.'</td></tr>
 
-                        <tr><td colspan="2"><a class="btn btn-warning btn-xs pull-right" href="koltuk.php?x='.$id.'" role="button">Bilet Al</a</td></tr>
+                        <tr><td colspan="2"><a class="btn btn-warning btn-xs pull-right" href="koltuk.php?x='.$id.'&t=t" role="button">Bilet Al</a</td></tr>
 
                      
 
