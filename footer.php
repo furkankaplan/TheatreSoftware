@@ -6,10 +6,9 @@
 
 
 <body>
-
+<?php include_once "Classes.php";?>
 <?php
 include ("connect.php");
-include "Classes.php";
 $dizi = new Sosyalmedya();
 $result = $dizi -> getSosyalmedya();
 

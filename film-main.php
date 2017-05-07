@@ -14,7 +14,7 @@ include ("slider.php");
 <div class="row">
 <h2 class="text-center">Vizyondakiler</h2>
 <div class="row">
-	
+    <?php include_once "Classes.php";?>
 	<?php
 
     $dizi = new Films();

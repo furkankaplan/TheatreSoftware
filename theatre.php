@@ -1,5 +1,6 @@
-<?php include("Classes.php");?>
 <?php include "connect.php";?>
+<?php include_once "Classes.php";?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,6 +21,11 @@
   
 </head>
 
+<script>
+    function goToTiyatro(id){
+        location = "tiyatro.php?k="+id;
+    }
+</script>
 
 <body>
     <div class="row">    <?php include 'navbar.php'; ?></div>
@@ -64,7 +70,7 @@
                 <br>
 
 
-                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right" onclick="goToFilm('.$fid.')">
+                   <input type="submit"  value=" Ayrıntılı Bak"   class="btn btn-warning pull-right" onclick="goToTiyatro('.$fid.')">
                 </div>
             </div>
             

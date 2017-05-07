@@ -10,7 +10,7 @@ $obj = new Tiyatrolar();
 if ($obj -> deleteTiyatrolar($tiyatro_id)) {
     echo "Silindi";?>
     <script>
-        setTimeout(function(){ window.location.href='tiyatro.php'; }, 3000);
+        setTimeout(function(){ window.location.href='tiyatro-index.php'; }, 3000);
     </script>
     <?php
 

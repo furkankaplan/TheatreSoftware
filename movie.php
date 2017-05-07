@@ -1,5 +1,5 @@
 <?php include_once("connect.php");?>
-<?php include("Classes.php");?>
+<?php include_once "Classes.php";?>
 <!DOCTYPE html>
 <html>
 <head>

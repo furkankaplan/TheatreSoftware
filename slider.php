@@ -8,7 +8,7 @@
         <div style="position:absolute;display:block;background:url('img/loading.gif') no-repeat center center;top:0px;left:0px;width:100%;height:100%;"></div>
     </div>
     <div data-u="slides" style="cursor: default; position: relative; top: 0px; left: 0px; width: 1300px; height: 500px; overflow: hidden;">
-
+        <?php include_once "Classes.php";?>
 <?php 
 
             include ("connect.php");

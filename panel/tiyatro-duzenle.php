@@ -59,7 +59,7 @@ $yonetmen = $dizi -> getYonetmen($result);
 		<div class="col-md-4">
 		<h4>Tiyatronun Adı</h4>
 		<div class="input-group">
-		<input type="text" class="form-control" placeholder="Film Adı" name="fname" value="<?php echo $isim; ?>" required>
+		<input type="text" class="form-control" placeholder="Tiyatro Adı" name="fname" value="<?php echo $isim; ?>" required>
 		</div>
 		</div>
 
@@ -140,7 +140,7 @@ $yonetmen = $dizi -> getYonetmen($result);
 	
 </div>
 
-<div class="col-md-9"><input type="submit"  value=" Filmi Düzenle" id="btn-payment"  class="btn btn-danger pull-right"></button></div>
+<div class="col-md-9"><input type="submit"  value=" Tiyatroyu Düzenle" id="btn-payment"  class="btn btn-danger pull-right"></button></div>
 <input type="hidden" name="id" value="<?php echo $id; ?>">
 
 </form>

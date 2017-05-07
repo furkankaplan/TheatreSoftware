@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <title>Deneme Projesi</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="panel/css/bootstrap.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jasny-bootstrap.min.js"></script>
+    <script src="panel/js/bootstrap.min.js"></script>
+    <script src="panel/js/jasny-bootstrap.min.js"></script>
     <script src="js/slider.min.js"></script>
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/hover.css" rel="stylesheet">    
-    <link href="css/jasny-bootstrap.min.css" rel="stylesheet">  
-    <link href="css/ayar.css" rel="stylesheet">
+    <link href="panel/css/font-awesome.min.css" rel="stylesheet">
+    <link href="panel/css/hover.css" rel="stylesheet">
+    <link href="panel/css/jasny-bootstrap.min.css" rel="stylesheet">
+    <link href="panel/css/ayar.css" rel="stylesheet">
 
     <style type="text/css">
         body{
@@ -26,10 +26,10 @@
 <body >
 
 
-<?php 
-include ("connect.php");
-include ("navbar.php");  
-?> 
+<?php
+include("connect.php");
+include("navbar.php");
+?>
 
 
 
@@ -37,21 +37,21 @@ include ("navbar.php");
 <?php include("navbar.php");
 
 $id=$_GET["k"];
-$dizi = new Films();
-$result = $dizi -> getFilmsByID($id);
+$dizi = new Tiyatrolar();
+$result = $dizi -> getTiyatrolarByID($id);
 $id = $dizi -> getID($result);
-$film_adi = $dizi -> getFilmAdi($result);
+$film_adi = $dizi -> getTiyatroAdi($result);
 $seans = $dizi -> getSeans($result);
 $oyuncular = $dizi -> getOyuncular($result);
 $ozet = $dizi -> getOzet($result);
 $gosterim_tarihi = $dizi -> getGosterimTarihi($result);
 $afis = $dizi -> getAfis($result);
-$fragman = $dizi -> getFragman($result);
+//$fragman = $dizi -> getFragman($result);
 $yonetmen = $dizi -> getYonetmen($result);
 echo '<div class="row">
    
     <div class="col-md-6"><div class="embed-responsive embed-responsive-4by3 ">
-          <iframe class="embed-responsive-item" src="'.$fragman.'"></iframe>
+    
      </div>
     </div>
         <h4 class="text-center" value="'.$film_adi.'"></h4>
@@ -97,7 +97,7 @@ echo '<div class="row">
 ?>
 
 <div class="row" style="margin-top: 50px;">
-<?php include ("footer.php") ?>
+    <?php include("footer.php") ?>
 </div>
 </body>
 </html>
