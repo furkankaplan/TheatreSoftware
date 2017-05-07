@@ -18,6 +18,7 @@ else{
 
 
   include("connect.php");
+  include "../Classes.php";
 
 
    $guncelleyen=$_SESSION["uye_adi"]." ".$_SESSION["uye_soyadi"];

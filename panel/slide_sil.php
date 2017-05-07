@@ -1,6 +1,7 @@
 <?php
 
 include ("connect.php");
+include_once ("../Classes.php");
 
 $id = $_GET["k"];
 
