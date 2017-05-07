@@ -1,15 +1,16 @@
 <?php
-		session_start();
 		include("connect.php");
+        include_once "../Classes.php";
 
- 		$username=$_SESSION["uye_adi"];
- 		$status=$_SESSION["uye_statu"];
-		$lastname=$_SESSION["uye_soyadi"];
-		$password=$_SESSION["uye_sifre"];
-		$email=$_SESSION["uye_eposta"];
-		$id=$_SESSION["uye_id"];
-        
+        $id=$_SESSION["id"];
 
+		$obj = new Kullanicilar();
+		$res = $obj -> get($id);
+		$username = $obj -> getUyeEposta($res);
+        $status = $obj -> getUyeStatu($res);
+        $lastname = $obj -> getUyeSoyadi($res);
+		$password = $obj -> getUyeSifre($res);
+ 	    $email= $obj -> getUyeEposta($res);
     
 ?>
 
@@ -50,7 +51,13 @@
 		</div>
 		</div>
 
-		
+
+        <div class="col-md-4">
+            <h4>Üye Id</h4>
+            <div class="input-group">
+                <input type="text" class="form-control"  name="id" value="<?php echo $id; ?>" disabled>
+            </div>
+        </div>
 
 	</div>
 

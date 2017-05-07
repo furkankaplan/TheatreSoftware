@@ -1,6 +1,7 @@
 <?php
 
 include ("connect.php");
+include_once "../Classes.php";
 
 $isim = $_POST["name"];
 $soyisim = $_POST["lname"];

@@ -1,5 +1,8 @@
 
-<?php include ("connect.php"); ?>
+<?php 
+include ("connect.php"); 
+include_once "../Classes.php";
+?>
 
 
 

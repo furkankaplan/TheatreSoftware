@@ -201,10 +201,18 @@ class Kullanicilar{
         }
     }
 
+    public function get($id){
+        global $db;
+        $sorgu=$db->prepare("select * from kullanicilar where id=?");
+        $sorgu->execute(array($id));
+        $dizi=$sorgu->fetch(PDO::FETCH_ASSOC);
+        return $dizi;
+    }
+
+
     public function updateKullanicilar($isim, $soyisim,$sifre,$eposta,$id){
         global $db;
         $kullanicilar= $db->prepare("update kullanicilar set uye_adi=?, uye_soyadi=?, uye_sifre=?, uye_eposta=? where id=?");
-
         $updateing = $kullanicilar -> execute(array($isim,$soyisim,$sifre,$eposta,$id));
         return $updateing;
     }
@@ -311,7 +319,7 @@ class Slider{
     }
 
     public function getLink($dizi){
-        return $dizi["slide_link"];
+        return $dizi["slide_linki"];
     }
 
     public function getResmi($dizi){

@@ -140,7 +140,7 @@ include("connect.php");
         $_SESSION["uye_soyadi"]=  $dizi -> getUyeSoyadi($result);
         $_SESSION["uye_sifre"]=  $dizi -> getUyeSifre($result);
         $_SESSION["uye_eposta"]= $dizi -> getUyeEposta($result);
-        $_SESSION["uye_id"]= $dizi -> getUyeID($result);
+        $_SESSION["id"]= $dizi -> getUyeID($result);
 
             ?>
 
