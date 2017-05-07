@@ -2,10 +2,10 @@
 -- version 4.6.5.2
 -- https://www.phpmyadmin.net/
 --
--- Anamakine: 127.0.0.1
--- Üretim Zamanı: 02 May 2017, 21:27:53
+-- Anamakine: localhost
+-- Üretim Zamanı: 07 May 2017, 13:56:29
 -- Sunucu sürümü: 10.1.21-MariaDB
--- PHP Sürümü: 7.1.1
+-- PHP Sürümü: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `filmler` (
   `id` int(2) NOT NULL,
   `film_adi` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
+  `yonetmen` text COLLATE utf8_turkish_ci NOT NULL,
   `oyuncular` varchar(175) COLLATE utf8_turkish_ci NOT NULL,
   `ozet` varchar(500) COLLATE utf8_turkish_ci NOT NULL,
   `fragman` varchar(200) COLLATE utf8_turkish_ci NOT NULL,
@@ -42,13 +43,13 @@ CREATE TABLE `filmler` (
 -- Tablo döküm verisi `filmler`
 --
 
-INSERT INTO `filmler` (`id`, `film_adi`, `oyuncular`, `ozet`, `fragman`, `afis`, `seans`, `gosterim_tarihi`, `gosterim_turu`) VALUES
-(13, 'Logan', 'Hugh Jackman', ' ', 'https://www.youtube.com/embed/DiTECkLZ8HM', 'logan-dikey.jpg', 3, '2017-03-17', 0),
-(14, 'Martian', 'Matt Damon', ' ', '[12:02, 29.3.2017] +90 534 244 32 22: COMING Trailer Teaser (2017) Tom Holland, Robert Downey Jr. Marvel Movie HDSPIDER-MAN: HOMECOMING Trailer Teaser (2017) Tom Holland, Robert Downey Jr. Marvel Movi', 'martian-dikey.jpg', 3, '2017-03-08', 0),
-(18, 'Lucy', 'Scarlett, Morgan Freeman', ' ', 'www.youtube.com', 'lucy-dikey2.jpg', 3, '2017-03-29', 0),
-(21, 'Spiderman Homecoming', 'Kimler Yok ki?', 'spiderman yeni film', 'https://youtu.be/DYaHetc_h9U', 'skyfall-dikey.jpg', 5, '2017-04-25', 1),
-(22, 'Godfather', 'Al Pacino', 'geç', 'link link link', 'godfather.jpg', 2, '2017-04-07', 1),
-(23, 'yeşil yol', 'Kimler Yok ki?', 'Hugh\'n son Yolverin filmi', 'www.youtube.com', 'yesilyol-dikey.jpg', 2, '2017-04-13', 1);
+INSERT INTO `filmler` (`id`, `film_adi`, `yonetmen`, `oyuncular`, `ozet`, `fragman`, `afis`, `seans`, `gosterim_tarihi`, `gosterim_turu`) VALUES
+(13, 'Martian', 'şipilberk', 'Hugh Jackman', '  yeni özet  ', 'https://www.youtube.com/embed/DiTECkLZ8HM', 'martian-dikey.jpg', 3, '2017-03-17', 0),
+(14, 'Logan', 'yonetmen2', 'Matt Damon', ' ', '[12:02, 29.3.2017] +90 534 244 32 22: COMING Trailer Teaser (2017) Tom Holland, Robert Downey Jr. Marvel Movie HDSPIDER-MAN: HOMECOMING Trailer Teaser (2017) Tom Holland, Robert Downey Jr. Marvel Movi', 'logan-dikey.jpg', 3, '2017-03-08', 0),
+(18, 'Lucy', 'yonetmen3', 'Scarlett, Morgan Freeman', ' ', 'www.youtube.com', 'lucy-dikey2.jpg', 3, '2017-03-29', 0),
+(21, 'Spiderman Homecoming', 'yonetmen4', 'Kimler Yok ki?', 'spiderman yeni film', 'https://youtu.be/DYaHetc_h9U', 'skyfall-dikey.jpg', 5, '2017-04-25', 1),
+(22, 'Godfather', 'yonetmen5', 'Al Pacino', 'geç', 'link link link', 'godfather.jpg', 2, '2017-04-07', 1),
+(23, 'yeşil yol', 'yonetmen6', 'Kimler Yok ki?', 'Hugh\'n son Yolverin filmi', 'www.youtube.com', 'yesilyol-dikey.jpg', 2, '2017-04-13', 1);
 
 -- --------------------------------------------------------
 
@@ -489,7 +490,6 @@ CREATE TABLE `slider` (
   `slide_resim` varchar(100) COLLATE utf8_turkish_ci NOT NULL,
   `slide_yazi` varchar(500) COLLATE utf8_turkish_ci NOT NULL,
   `slide_linki` varchar(400) COLLATE utf8_turkish_ci NOT NULL,
-  `slide_alt_yazisi` varchar(200) COLLATE utf8_turkish_ci NOT NULL,
   `ekleyen` varchar(80) COLLATE utf8_turkish_ci NOT NULL,
   `guncelleyen` varchar(80) COLLATE utf8_turkish_ci NOT NULL,
   `eklenme_tarihi` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -500,9 +500,9 @@ CREATE TABLE `slider` (
 -- Tablo döküm verisi `slider`
 --
 
-INSERT INTO `slider` (`id`, `slayt_adi`, `slide_resim`, `slide_yazi`, `slide_linki`, `slide_alt_yazisi`, `ekleyen`, `guncelleyen`, `eklenme_tarihi`, `guncellenme_tarihi`) VALUES
-(15, 'Rocky', 'rocky.jpg', 'Rocky', 'link link link', 'das', '', 'eray kanepe', '2017-03-31 08:07:27', '2017-03-31 11:41:16'),
-(14, 'Logan', 'logan.png', 'Logan', 'Logan', 'fdgfd', '', 'eray kanepe', '2017-03-31 07:54:14', '2017-03-31 11:35:54');
+INSERT INTO `slider` (`id`, `slayt_adi`, `slide_resim`, `slide_yazi`, `slide_linki`, `ekleyen`, `guncelleyen`, `eklenme_tarihi`, `guncellenme_tarihi`) VALUES
+(15, 'Rocky', 'rocky.jpg', 'Rocky', 'link link link', '', 'eray kanepe', '2017-03-31 08:07:27', '2017-05-03 20:10:02'),
+(14, 'Logan', 'logan.png', 'Logan', 'Logan', '', 'eray kanepe', '2017-03-31 07:54:14', '2017-03-31 11:35:54');
 
 -- --------------------------------------------------------
 
@@ -515,14 +515,14 @@ CREATE TABLE `slider_film` (
   `slider_adi` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
   `slider_resmi` varchar(60) COLLATE utf8_turkish_ci NOT NULL,
   `slider_yazi` varchar(20) COLLATE utf8_turkish_ci NOT NULL,
-  `slide_link` varchar(50) COLLATE utf8_turkish_ci NOT NULL
+  `slider_link` varchar(50) COLLATE utf8_turkish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci;
 
 --
 -- Tablo döküm verisi `slider_film`
 --
 
-INSERT INTO `slider_film` (`id`, `slider_adi`, `slider_resmi`, `slider_yazi`, `slide_link`) VALUES
+INSERT INTO `slider_film` (`id`, `slider_adi`, `slider_resmi`, `slider_yazi`, `slider_link`) VALUES
 (3, '3uncu', '3resim', '3yazı', '3link'),
 (5, '5inci', '', '5yazı', ''),
 (6, 'bfdb', '4.JPG', 'df', 'd');
@@ -546,6 +546,34 @@ CREATE TABLE `sosyalmedya` (
 
 INSERT INTO `sosyalmedya` (`id`, `facebook`, `googleplus`, `instagram`) VALUES
 (1, 'https://www.facebook.com/biletcitest302', 'http://www.plus.google.com/biletci', 'http://www.instagram.com/biletcitest');
+
+-- --------------------------------------------------------
+
+--
+-- Tablo için tablo yapısı `tiyatrolar`
+--
+
+CREATE TABLE `tiyatrolar` (
+  `id` int(2) NOT NULL,
+  `tiyatro_adi` varchar(50) COLLATE utf8_turkish_ci NOT NULL,
+  `yonetmen` text COLLATE utf8_turkish_ci NOT NULL,
+  `oyuncular` varchar(175) COLLATE utf8_turkish_ci NOT NULL,
+  `ozet` varchar(500) COLLATE utf8_turkish_ci NOT NULL,
+  `afis` varchar(60) COLLATE utf8_turkish_ci NOT NULL,
+  `seans` int(2) NOT NULL,
+  `gosterim_tarihi` date NOT NULL DEFAULT '2017-03-29',
+  `gosterim_turu` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_turkish_ci ROW_FORMAT=COMPACT;
+
+--
+-- Tablo döküm verisi `tiyatrolar`
+--
+
+INSERT INTO `tiyatrolar` (`id`, `tiyatro_adi`, `yonetmen`, `oyuncular`, `ozet`, `afis`, `seans`, `gosterim_tarihi`, `gosterim_turu`) VALUES
+(1, 'Huysuz', 'Engin Alkan', 'Selim Turgay Deli,Ayşe Sinem Korola', ' Moliere’in Huysuz’u lakabı ile anılan tiyatro oyuncusu Armağan Özcan yaşlılık günlerini bir huzurevinde geçirmektedir. İçinde bulunduğu durumdan sürekli şikayet eden eski oyuncu aksilikleri ile hayatı hem kendine hem de etrafındakilere zehir ederken eski parlak günlerini özlemle anmakta ve bir zamanlar sahnede başarı ile canlandırdığı Moliere karakterleri kafasının içinde dönüp durmaktadır. Bu durum neticesinde de sık sık gerçek dünya ile hayal dünyası arasında gidiş gelişler yaşar.', 'huysuz.jpg', 5, '2017-05-06', 0),
+(2, 'Özgürlüğe Kaçış', 'Özer Tunca', 'Abdullah Türkay Uzun,Duygu Dikmen', ' Her yaştan izleyiciye tam bir görsel şölen vaat eden oyunda, bir kafesin içinde sessiz sakin yaşayıp giden bir grup evcil hamsterın özgürlük mücadelesi anlatılıyor. Kafeslerinde oturarak satılmayı bekleyen sevimli hamster ailesi, bir gün peynir çalarken yakalanarak kafese atılan Kocagöz adlı bir fare ile tanışırlar. Çiftliğin gizli köşelerinde özgürce yaşamaya alışmış olan Kocagöz, kafese girdiği andan itibaren kaçış planları yapmaya başlar. Zaman içinde bu planlarına hamsterları da dâhil eder ', 'özgürlüğe kaçış.jpg', 1, '2017-03-17', 0),
+(3, 'Küçük Kara Balık', 'Ali Meriç', 'Şebnem Yurttutan,Çağatay Çanta', ' Annesi ile beraber bir derede yaşayan küçük karabalık bir gün yaşadığı yerin dışındaki dünyayı merak eder ve ona engel olmak isteyenlere karşı direnerek uzun bir yolculuğa çıkar. Bu yolculuğunda kurbağalarla, denizatlarıyla ve büyük kepçeli bir balıkçıl kuşuyla maceralara atılır.', 'küçük kara balık.jpg', 2, '2017-03-17', 0),
+(4, 'Para', 'Özer Tunca', 'Suser Başaran', 'Üstad Necip Fazıl Kısaürek tarafından 1941-42 yılları arasında yazılan “Para” da bir banka patronu, O’nun ailesi ve yakın çevresinin hayatından bir kesit anlatılmaktadır.', 'para.jpg', 2, '2017-03-08', 0);
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -614,6 +642,12 @@ ALTER TABLE `sosyalmedya`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Tablo için indeksler `tiyatrolar`
+--
+ALTER TABLE `tiyatrolar`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Dökümü yapılmış tablolar için AUTO_INCREMENT değeri
 --
 
@@ -667,6 +701,11 @@ ALTER TABLE `slider_film`
 --
 ALTER TABLE `sosyalmedya`
   MODIFY `id` int(1) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Tablo için AUTO_INCREMENT değeri `tiyatrolar`
+--
+ALTER TABLE `tiyatrolar`
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
