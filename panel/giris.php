@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>MrzPanel</title>
+    <title>Kontrol Paneli</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -64,6 +64,10 @@
 		
 		opacity:0.9;
 	}
+
+	html,body{
+		height: 100%;
+	}
 	<style>
 
 </style>
@@ -71,7 +75,7 @@
 
 </head>
 
-<body style="background:url(img/bglogin1.jpg) no-repeat ;background-position: center center;
+<body style="background:url(img/login-bg.jpg) no-repeat ;background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;">
 
@@ -85,12 +89,10 @@
 	
 	<div class="row ortabolum"> 
 	
-	<div class="col-md-12"> 
-	<img src="img/morzalogo.png" alt="" class="img-responsive" />
-	</div>
+	
 	
 	<div class="col-md-12"> 
-	<h1 class="text-center" style="color:black;"> MrzPanel Kontrol Paneli </h1>
+	<h1 class="text-center" style="color:black;"> Soft Theatre Kontrol Paneli </h1>
 	<h5 class="text-center" style="color:black;"> Lütfen oturum açin.</h5>
 	</div>
 	
@@ -120,7 +122,7 @@
 	<div class="row" style="margin-top:20px; margin-bottom:20px;"> </div>   
 	
  <div class="col-md-12"> 
- <h4 class="text-center"> <a href="parolahatirlatma.php" style="font-weight:300">  Parolamı Unuttum</a> </h4>
+ <h4 class="text-center"> <a href="parolahatirlatma.php" style="font-weight:300;color:white">  Parolamı Unuttum</a> </h4>
  </div>
 	
 	</div>
