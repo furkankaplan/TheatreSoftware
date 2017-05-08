@@ -226,7 +226,7 @@ $(document).ready(function() {
 
            document.getElementById("btn-payment").disabled=false;
            $(this).prop ('disabled', true);
-           
+           $(this).addClass("buy-pre");
            if (sayi >= 6) {
            	alert("Maksimum 6 Bilet seçilebilir.");
            	$(this).prop('disabled',false);
@@ -246,10 +246,10 @@ function sifirla(){
 	document.getElementById("btn-payment").disabled=true;
 	sayi = 0;
 
-	var x = document.getElementsByClassName("btn-success");
+	var x = document.getElementsByClassName("buy-pre");
 	for (var i = 0; i < x.length; i++) {
 		x[i].disabled= false;
-		
+
 		
 	}
 }

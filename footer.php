@@ -20,7 +20,7 @@ $instagram= $dizi -> getInstagram($result);
 ?>
 	
 <footer>
-	<div class="container">
+	<div class="container" style="min-height: 210px;">
 		<div class="row" >
 		<div class="col-md-4 col-xs-4 new-foot">
 			<h3>İletişim</h3>
