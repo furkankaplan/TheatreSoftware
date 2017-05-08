@@ -343,3 +343,13 @@ class SliderFilm{
         return $slayt_duzenle;
     }
 }
+
+class Search{
+    public static function doThat($search){
+        global  $db;
+        $query = $db -> prepare("SELECT * FROM filmler WHERE film_adi LIKE '%".$search."%'");
+        $query -> execute();
+        $res = $query -> fetchAll(PDO::FETCH_ASSOC);
+        return $res;
+    }
+}

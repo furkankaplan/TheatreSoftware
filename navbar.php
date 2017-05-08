@@ -2,6 +2,10 @@
     function goIndex() {
         location = "index.php";
     }
+    function searchThat() {
+        var search = $("input[name='search']").val();
+        location = "?search="+search;
+    }
 </script>
 <nav class="navbar navbar-default navbar-fixed-top">
 <div class="container-fluid">
@@ -32,13 +36,14 @@
         
 		
 		
-		<form class="navbar-form navbar-left">
+		<form class="navbar-form navbar-left" >
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Etkinlik Ara">
+          <input type="text" class="form-control" placeholder="Etkinlik Ara" name="search">
         </div>
-        <button type="submit" class="btn btn-default" style="background: darkred; color:white; border:none;">
-		<span class =" glyphicon glyphicon-search" ></span></button>
-      </form>
+            <div class="btn btn-default" style="background: darkred; color:white; border:none;" onclick="searchThat()">
+                <span class =" glyphicon glyphicon-search" ></span>
+            </div>
+        </form>
 		<li><a href="iletisim.php">İletişim</a></li>
 	  </ul>
 	

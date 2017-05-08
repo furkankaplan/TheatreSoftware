@@ -6,9 +6,13 @@ include ("slider.php");
 
 </div>
 
+<div class="row">
 
 
-
+<?php
+include "search.php";
+?>
+</div>
 
 
 <div class="row">
@@ -37,7 +41,7 @@ include ("slider.php");
 	    </div></div>  
 	    ';
 }
-
+echo "<br>";
 
 
 	?>
